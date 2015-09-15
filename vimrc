@@ -4,16 +4,15 @@ set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set writebackup
+set backspace=indent,eol,start
 
 "colorscheme!
 syntax enable
-colorscheme Tomorrow-Night-Eighties 
-
-Plugin 'chriskempson/vim-tomorrow-theme'
+set background=dark
+:colorscheme Tomorrow-Night-Eighties 
 
 "runtime path manipulation
 execute pathogen#infect()
-syntax on
 filetype plugin indent on
 
 "syntastic
@@ -29,6 +28,7 @@ let g:syntastic_check_on_wq = 0
 "maps jj to esc 
 imap jj <Esc>
 imap Jj <Esc>
+let mapleader = "\<Space>"
 
 :command WQ wq
 :command Wq wq
@@ -42,6 +42,6 @@ endif
 
 " line numbers!
 set nu
-
+highlight LineNr ctermfg=247 ctermbg=237
 
 
