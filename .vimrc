@@ -14,6 +14,7 @@ syntax enable
 set background=dark
 :colorscheme Tomorrow-Night-Eighties
 
+"formatting changes
 syntax on
 set ignorecase
 set expandtab
@@ -31,20 +32,36 @@ filetype plugin indent on
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-"syntastic!!
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_w = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_w = 1
+let g:syntastic_c_check_header = 1
 let b:syntastic_cpp_cflags = '-I/usr/include/libsoup-2.4'
 
 "remapping 
 map Y y$
 imap jj <Esc>
 imap Jj <Esc>
+imap JJ <Esc>
 let mapleader=","
 
 :command WQ wq
 :command Wq wq
 :command W w
+:command Q q
+
+nnoremap B ^
+nnoremap E $
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+" enables the mouse 
+if has('mouse')
+	set mouse=a
+endif
+
+" line numbers! 
+set nu
+highlight LineNr ctermfg=247 ctermbg=235
+hi CursorLineNr ctermfg=cyan
