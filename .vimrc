@@ -12,8 +12,7 @@ set showcmd
 "colorscheme!
 syntax enable
 set background=dark
-:colorscheme Tomorrow-Night-Eighties
-
+:colorscheme desert-warm-256
 "formatting changes
 syntax on
 set ignorecase
@@ -64,4 +63,4 @@ endif
 " line numbers! 
 set nu
 highlight LineNr ctermfg=247 ctermbg=235
-hi CursorLineNr ctermfg=cyan
+hi CursorLineNr ctermfg=BLUE
