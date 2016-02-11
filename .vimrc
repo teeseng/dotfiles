@@ -62,5 +62,7 @@ endif
 
 " line numbers! 
 set nu
+:set colorcolumn=80
+highlight ColorColumn ctermbg=magenta
 highlight LineNr ctermfg=247 ctermbg=235
 hi CursorLineNr ctermfg=BLUE
