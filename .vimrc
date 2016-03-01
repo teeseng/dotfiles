@@ -1,4 +1,5 @@
-".vimrc file"
+"
+"vimrc file"
 
 " setting up backup file directory to avoid clutter
 set backup
@@ -13,6 +14,7 @@ set showcmd
 syntax enable
 set background=dark
 :colorscheme desert-warm-256
+
 "formatting changes
 syntax on
 set ignorecase
@@ -38,6 +40,10 @@ let g:syntastic_check_on_w = 1
 let g:syntastic_c_check_header = 1
 let b:syntastic_cpp_cflags = '-I/usr/include/libsoup-2.4'
 
+"nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif 
+
 "remapping 
 map Y y$
 imap jj <Esc>
@@ -62,7 +68,5 @@ endif
 
 " line numbers! 
 set nu
-:set colorcolumn=80
-highlight ColorColumn ctermbg=magenta
 highlight LineNr ctermfg=247 ctermbg=235
 hi CursorLineNr ctermfg=BLUE
