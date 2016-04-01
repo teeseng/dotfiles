@@ -70,3 +70,4 @@ endif
 set nu
 highlight LineNr ctermfg=247 ctermbg=235
 hi CursorLineNr ctermfg=BLUE
+
