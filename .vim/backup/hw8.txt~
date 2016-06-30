@@ -1,0 +1,67 @@
+Homework 8:
+Name: Andy Tseng
+EID: art2589
+
+1. 
+    a)  CNT = 7 
+    b) 
+        typedef struct {
+            long idx;
+            long x[4];
+        }
+
+2.  A) e1.p    up
+       e1.y    up + 8
+       e2.x    up 
+       e2.next up + 8
+     
+ 
+    B) 16 bytes
+
+    C)  void proc(union ele *up) {
+            up->x = *(next->p) - up->y;
+        } 
+
+
+3.  a) no, if REG = rsp, then the instructions push the old value of rsp into 
+        the stack. It will be the value of rsp + 8.
+    
+    b) leaq REG, -0x8(%rsp) 
+       subq $8, %rsp
+
+
+4.  
+    a) 
+        void pbubble_a(long* data, long count) {
+            long i, last;
+            for(last = count - 1; last > 0; last--) {
+                long* pdata = data;
+                long* pdataf;
+                for(i = 0; i < last; i++) {
+                    pdataf = pdata + 1;
+                    if(*pdataf < *pdata) {
+                        long t = *(pdataf);
+                        pdataf = &(pdata);
+                        pdata = &t;
+                    }
+                    pdata++;
+                }
+            }
+        }
+
+    b)  
+        Main:
+            0x0            rrmovq %rsi, %rdx                
+            0x2            subq $1, %rdx
+            0x4            jle loop                
+        
+        loop:
+                           subq $1, %rdx
+            0xd            irmovq $0, %r8   
+            0x17           mrmovq (%rdi), %rax                 //rax = pdata rcx = pdataf
+            0x21           addq $1, %rdi
+                           mrmovq (%rdi), %rcx
+                           andq %r8, rdx
+                           jle loop
+        done:
+            ret

@@ -1,0 +1,26 @@
+Andy Tseng
+art2589
+51075
+
+1. I would not give the all of the process to each application as that
+could cause issues with mulitasking and running processes at the same 
+time. If multitasking were to occur then we should give the application
+with the most ammount of work as those could lead to starvation
+for those processes. 
+The operating system should allocate physical memory through dynamic 
+allocation but if the application's does not all fit in the memory then
+we should use paging to rotate the pages of memories needed for the 
+processes. 
+
+2. Synchronization tools such as locks are a great way to prevent other
+applications from modifying the memory data structures. It involves 
+acquiring the lock and preventing from any changes allowed to be 
+modified through function calls. Now for memory on disk, the allocated
+sectors on the disk can be specifically done to only the application
+that it belongs to unless it is freed. Free lists or maps are tracked
+down via some list where they store it. 
+
+3. Only one participant/node since you can make the nodes all 
+communicate with all the others the mesage. 
+
+4. two-phase commit ? I actually don't quite understand this question. 

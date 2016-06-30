@@ -1,0 +1,58 @@
+Andy Tseng
+art2589
+
+.pos 0
+
+# start
+    irmovq Stack, %rsp
+    rrmovq %rsp, %rbp
+    irmovq $3, %ebx
+    pushq %rbx
+    irmovq dest, %rbx
+    pushq src, %rbx
+    call copy_block
+    halt
+
+.align 8
+# Source block
+src:
+        .quad 0x00a
+        .quad 0x0b0
+        .quad 0xc00
+# Destination block
+dest:
+        .quad 0x111
+        .quad 0x222
+        .quad 0x333 
+
+copy_block:
+    pushq %rbp
+    rrmovq %rsp, %rbp
+    xorq %rdi, %rdi
+    mrmovq 8(%rbp), %rbx    # get src
+    mrmovq 24(%rbp), %rcx   # get dest
+    mrmovq 32(%rbp), %rdx   # get len
+    andq %rdx, %rdx
+    jle L4
+
+L5: 
+    mrmovq (%ebx), %rax
+    irmovq $1, %r8
+    subl %r8, %rdx
+    rrmovq %rax, (%rcx)
+    irmovq $8, %r8
+    addq %r8, %rbx
+    addq %r8, %rcx
+    xorq %rax, %rdi
+    andq %rdx, %rdx
+    jg L5
+
+L4:
+    rrmovq %rdi, %rax
+    rrmovq %rbp, %rsp
+    popq %rbp
+    ret
+
+.pos 0x200
+Stack:
+    

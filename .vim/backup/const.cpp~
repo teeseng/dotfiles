@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int const x = 4;
+    cout << x << endl;
+    int a = 5;
+    int* const y = &a;
+    cout << y << endl;
+    cout << *(y) << endl;
+    
+    a++;
+    cout << *(y) << endl;
+    cout << y << endl;
+    // cannot increment pointer *(y)++;
+    
+    int const* z = &a; 
+    z++; // this is allowed
+    //(*z)++;  // cannot allow for it to do that
+  
+   int* e = &a; 
+   int* const d = e; 
+   int* const* c = &d; 
+ }

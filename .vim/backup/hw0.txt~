@@ -1,0 +1,99 @@
+Andy Tseng
+art2589
+
+
+paired programming allows for faster and more accurate development of projects. there is a driver who writes the code and the remaining members make suggestions, small design errors, and other likely mistakes. drivers must switch around every 30 minutes and a large majority of the time is spent together rather than individually. a log called pair_programming_log.txt is kept that tracks down the time people drive within the team. areas or blocks of code should be denoted with who is driving. pair programming does not mean dividing the projects into two parts. it allows for discussion of alternatives between partners of projects. 
+
+
+/* linkedlist implementation in c */
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+/* Documentation 
+ * LinkedList begins with 1->2->3->4->5 in order
+ * Inserting nodes at the end. Example: adding 9 leads to 1->2->3->4
+ * ->5->9. 
+ * Removing removes the last node of the linked list. 
+ */
+
+
+/* node struct for linkedlist */
+struct node {
+    int data;
+    struct node *next; 
+
+};
+
+struct node *first; 
+struct node *last;
+
+void add(int n) {
+    struct node *newNode = (struct node*)malloc(sizeof(struct node)); 
+    newNode->data = n; 
+    newNode->next = NULL;
+
+    if(first) {
+        last->next = newNode; 
+        last = newNode; 
+    }
+    else {
+        first = newNode; 
+        last = newNode; 
+    }
+
+}
+
+void removeNode() {
+    struct node *curr = first;
+    struct node *prev;
+
+    if(first->next) {
+        while(curr->next) {
+            prev = curr;
+            curr = curr->next; 
+        }
+        free(prev->next);
+        prev->next = NULL;
+        last = prev; 
+    } else {
+        free(first);
+        first = NULL;
+        last = NULL;
+    }
+
+}
+
+
+int main(int argc, char *argv[]) {
+    add(1);
+    add(2);
+    add(3);
+    add(4);
+    add(5); 
+    add(9);
+
+    struct node *curr = first; 
+    printf("This is the LinkedList so far: \n");
+    while(curr) {
+        printf("%d ", curr->data);
+        curr = curr->next; 
+    
+    }
+    printf("\n");
+
+    /* Testing the remove function! */ 
+    removeNode();
+    
+    struct node *ncurr = first; 
+    printf("This is the LinkedList so far: \n");
+    while(ncurr) {
+        printf("%d ", ncurr->data);
+        ncurr = ncurr->next; 
+    
+    }
+    printf("\n");
+    return 0;
+}
+

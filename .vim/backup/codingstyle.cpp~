@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+void h() {
+    Node* n = NULL;
+    while(n) {
+        n = n->next;
+    }
+}
+
+int f() {
+    return 1;
+}
+
+int main() {
+    int x;
+    bool b;
+    if(b) {
+        x = 1; 
+    } else {
+        x = 2;
+    }
+
+    x = (b) ? f() : 2; // more compact and cleaner
+}

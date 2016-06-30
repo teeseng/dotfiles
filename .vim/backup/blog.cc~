@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int cases;
+    cin >> cases;
+    for (int i = 0; i < cases; i++) {
+        char word[11];
+        cin >> word;
+
+        if(strcmp(word, "Dropbox") == 0) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+    return 0;
+}

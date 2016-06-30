@@ -1,0 +1,6 @@
+long plus(long, long);
+
+void sumstor(long x, long y, long *dest) {
+    long t = plus(x , y);
+    *dest = t; 
+}

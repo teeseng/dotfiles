@@ -1,0 +1,41 @@
+Andy Tseng
+art2589
+andytsen
+51075
+
+1.
+    Illusionist, referee, glue
+    Illusionist - make the user feel like it is the only one running the 
+    system
+    Glue - keeps everything together and provides services to the user
+    Referee - allocates resources and manages the sharing of it. 
+2.
+    Yes, specifically when the I/O is getting piped in and needs to not 
+    have the data mixed between other I/O devices. 
+
+3.
+    Bounded Resources - a finite number of threads or processes can use a 
+    resource and they are finite. 
+
+    Hold and Wait - taking a lock that is already taken while the other 
+    event is also waiting for that same lock. 
+
+    No pre-emption - threads or processes cannot force other threads or
+    processes to release resources such as locks. 
+    
+    Circular Wait - set of processes that are waiting on one another in 
+    circular order
+
+4.
+    Global page replacement - considers all the pages, requires processes to
+    fight for pages throughout the system.
+
+    Local Page replacement - pages to the process are considered, 
+    doesn't really have unlimited memory for each process as pages 
+    are only given to these pages. 
+
+5.
+    Unreliable parts become reliable parts through synchronization and other 
+    ways as well. 
+    
+

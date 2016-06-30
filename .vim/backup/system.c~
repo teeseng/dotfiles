@@ -1,0 +1,35 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/time.h>
+
+int hello() {
+    printf("Hello, World!\n"); 
+    return 0;
+}
+
+int main() {
+    
+    struct timeval t0, t1, t2, t3; 
+    long long elapsed; 
+
+    gettimeofday(&t0, 0); 
+    hello();
+    gettimeofday(&t1, 0);
+
+    elapsed = (t1.tv_sec - t0.tv_sec) * 1000000LL + 
+        (t1.tv_usec - t0.tv_usec); 
+    
+    printf("Time elapsed for hello() procedure call %lld microsec\n", elapsed); 
+    
+
+    gettimeofday(&t2, 0);
+    getuid();
+    gettimeofday(&t3,0); 
+
+    printf("Time elapsed for getuid() procedure call %lld microsec\n", elapsed);
+
+    elapsed = (t3.tv_sec - t2.tv_sec) * 1000000LL + 
+        (t3.tv_usec - t2.tv_usec); 
+    return 0; 
+}

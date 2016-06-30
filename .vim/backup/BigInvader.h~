@@ -1,0 +1,11 @@
+#ifndef BIGINVADER_H_INCLUDED   
+#define BIGINVADER_H_INCLUDED 
+#include "EnemyShip.h"
+
+class BigInvader : public EnemyShip {
+    public:
+        BigInvader();
+        BigInvader(int, int);
+};
+
+#endif

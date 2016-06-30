@@ -1,0 +1,86 @@
+1. 
+
+    1: 1
+    1: 2
+    1: 3
+    1: 4
+    1: 5
+    1: 6
+    1: 7
+    1: 8
+    2: 1
+    2: 2    
+    2: 3
+    2: 4
+    2: 5    
+    2: 6
+    3: 1
+    3: 2
+    3: 3
+    3: 4
+    3: 5
+    3: 6
+    3: 7
+    3: 8
+    3: 9
+    3: 10
+    1: 9
+    1: 10
+    2: 7
+    2: 8
+    2: 9
+    2: 10
+
+
+
+
+2.
+
+    i = 1
+    i = 1
+        
+    Prints twice because of the calling process then the parent itself process. 
+    The program prints one twice as it doesnt save the modification done from
+    its own child processes. Thus i stays at the value of 1. 
+
+    There are no other possible outputs because the parent will always be inc
+    twice as it is entered twice in that section of the code while child section
+    is only entered once. Thus no matter how you wait it will always enter once. 
+
+
+3.
+    i = 0
+    "i" is the value of 0 because the no matter how the scheduler blocks the
+    threads, i will eventually be incremented and decremeneted based before
+    it is printed. 
+    
+    There no other possible outputs as explained above. The wait causes the 
+    print statement to wait. 
+
+
+4.
+    Kernal threads have their own scheduler and thus easier to implement. Their
+    system calls do not block processes along with switching between threads
+    is less expensive. User level threads have even faster switches because 
+    of no system calls and context switches. They have a customizable scheduler
+    which allows for more efficient implementations. One issue is that user lvl
+    schedulers can end up fighting with the kernal scheduler. 
+
+
+5.
+    re-entrant means it can be executed safely through re-entering while another
+    thread of the same code is running. It will not effect the results and will
+    execute correctly consistently. 
+
+    re-entrant calls are separate and will not change 
+
+    Re-entrant behaviors is important to multi-threaded because it ensures the
+    correct excecution of the code no matter what the scheduler decides to do 
+    during the running of the threads. It prevents "Too much milk" and creates
+    consistent results.  
+    
+
+
+
+
+

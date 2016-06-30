@@ -1,0 +1,23 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+
+void print(int id) {
+    int i;
+    for(i = 1; i < 11; i++) {
+        printf("%d: %d \n",id, i); 
+    }
+}
+
+int main() {
+    pthread_t thread1;
+    pthread_t thread2;
+    pthread_t thread3;
+
+    pthread_create(&thread1, NULL, (void*) &print, (void *) 1);
+    pthread_create(&thread2, NULL, (void*) &print, (void *) 2);
+    pthread_create(&thread3, NULL, (void*) &print, (void *) 3);
+
+
+    return 0; 
+}

@@ -1,0 +1,10 @@
+#include <stdlib.h>
+#include <stdio.h>
+void func() {
+    int x;
+    x += 3; 
+}
+
+int main() {
+   return 0;
+}

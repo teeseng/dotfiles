@@ -1,0 +1,21 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    
+    int a = 4; 
+    int const x = a;
+    int* const y = &a;
+    int const* z = &a;
+
+    // x++; not allowed
+    a++;
+    (*y)++;
+    //y++;
+    z++; 
+    int b = *(z++);
+    
+
+}
+
+

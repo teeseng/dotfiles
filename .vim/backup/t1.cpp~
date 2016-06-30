@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+struct A {
+    A(int) {}
+};
+
+struct B : public A {
+    int x;
+    B() : A(3) {}
+};
+
+int main() {
+
+}

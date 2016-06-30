@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+class Base {
+public: 
+    int x;
+    virtual void f() {
+        cout << "Base:f()" << endl;
+    }
+};
+
+class Derived : public Base {
+    public: 
+        string name;
+        void f() {
+            cout << "Derived:f()" << endl;
+        }
+};
+
+
+int main(int argc, char const *argv[]) {
+    Base* array[10];
+    array[0]= new Derived();    
+}

@@ -1,0 +1,192 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+// problems with large huffcode digits bigger than ints
+
+public class SimpleHuffProcessor implements IHuffProcessor {
+    
+    private IHuffViewer myViewer;
+    
+    // make sure we can use these
+    private HuffmanCodeTree huffTree;
+    private int compressedFileSize;
+    private int originalFileSize;
+
+    public int compress(InputStream in, OutputStream out, boolean force) throws IOException {
+       
+        
+        // throw new IOException("compress is not implemented");
+        
+        // writing magic number
+        BitOutputStream output = new BitOutputStream(out);
+        output.writeBits(BITS_PER_INT, MAGIC_NUMBER);
+        
+        // writing constant of how we store the frequencies 
+        output.writeBits(BITS_PER_INT, STORE_TREE);
+        
+        //write in the header 
+        StringBuilder treeRecreateInfo = new StringBuilder();
+        preOrderTraverse(huffTree.getRoot(), treeRecreateInfo);
+        
+        // MAYBE there is a better way to fix this issue
+        while (treeRecreateInfo.toString().length() >= BITS_PER_WORD) { 
+            int partition = Integer.parseInt(treeRecreateInfo.substring(0, BITS_PER_WORD));
+            output.writeBits(BITS_PER_WORD, partition);
+            treeRecreateInfo.delete(0, BITS_PER_WORD);
+        }
+        if (treeRecreateInfo.toString().length() != 0)
+            output.writeBits(treeRecreateInfo.toString().length(), Integer.parseInt(treeRecreateInfo.toString()));
+        
+        //rescanning the text to write in the compressed bits 
+        // 2. how to use this write method
+        Map<Integer, String> encodingTable = huffTree.createMap();
+        System.out.println("ENCODING TABLE " + encodingTable + "ENCODING TABLE SIZE " + encodingTable.size());
+        
+	// chopping up the string incase it gets too large!
+        int currentRead = in.read();
+        while (currentRead != -1) {
+            String huffCode = encodingTable.get(currentRead);
+            if (huffCode != null) {
+                while (huffCode.length() > 10) {  // may need to change from Strings to improve speed
+                    int partition = Integer.parseInt(huffCode.substring(0, 10));
+                    output.writeBits(10, partition);
+                    huffCode = huffCode.substring(10);
+                }
+                output.writeBits(huffCode.length(), Integer.parseInt(huffCode)); // need to chop up
+            }
+            currentRead = in.read();   
+        }
+        
+        // write in the EOF
+        String codeOfEOF = encodingTable.get(IHuffConstants.PSEUDO_EOF);
+        output.writeBits(codeOfEOF.length(), Integer.parseInt(codeOfEOF));      
+        
+        // fills in the zeroes
+        int zeroesToAdd = compressedFileSize % 8;
+        if (zeroesToAdd != 0) {
+            output.writeBits(zeroesToAdd, 0);
+            compressedFileSize += zeroesToAdd;
+        }
+        
+        output.close();
+        return compressedFileSize;
+    }
+    
+    // helper method to traverse tree
+    private void preOrderTraverse(TreeNode n, StringBuilder s) {    
+        if(n != null) {
+            if (!n.isLeaf()) {
+                s.append(0);
+                preOrderTraverse(n.getLeft(), s);
+                preOrderTraverse(n.getRight(), s);
+            }
+            else {
+                s.append(1);
+                s.append(Integer.toBinaryString(n.getValue())); 
+            }
+        }   
+    }
+    
+    public int preprocessCompress(InputStream in, int headerFormat) throws IOException {
+        
+        int numBits = 2 * BITS_PER_INT;
+        
+        // created PriorityQueue
+        HuffPriorityQueue huffProcess = new HuffPriorityQueue();
+        int[] inputFreq = new int[IHuffConstants.ALPH_SIZE]; // maybe  minus 1
+        BitInputStream bis = new BitInputStream(in);
+        
+        List<Integer> fileStore = new ArrayList<Integer>(in.available()); // uses an estimate of the file size
+        int currentRead = bis.read();
+        while (currentRead != -1) {
+            fileStore.add(currentRead);
+            inputFreq[currentRead]++;
+            currentRead = bis.read(); 
+        }
+        
+
+        originalFileSize = (fileStore.size() - 1) * BITS_PER_WORD;
+        originalFileSize += Integer.toBinaryString(fileStore.get(fileStore.size() - 1)).length();
+        
+        TreeNode[] data = new TreeNode[inputFreq.length];
+        for (int i = 0; i < inputFreq.length; i++) {
+            if (inputFreq[i] != 0) {
+                huffProcess.enqueue(new TreeNode(i, inputFreq[i]));
+            }
+        }
+        
+        //adding EOF
+        huffProcess.enqueue(new TreeNode(IHuffConstants.PSEUDO_EOF, 1));
+        huffTree = new HuffmanCodeTree(huffProcess);
+        
+        // creating encoding table
+        Map<Integer, String> encodingTable = huffTree.createMap();
+        
+        //write in the header 
+        StringBuilder treeRecreateInfo = new StringBuilder();
+        preOrderTraverse(huffTree.getRoot(), treeRecreateInfo);
+        
+        // MAYBE there is a better way to fix this issue
+        while (treeRecreateInfo.toString().length() >= BITS_PER_WORD) { 
+            treeRecreateInfo.delete(0, BITS_PER_WORD);
+            compressedFileSize += BITS_PER_WORD;
+        }
+        if (treeRecreateInfo.toString().length() != 0)
+            compressedFileSize += treeRecreateInfo.toString().length();
+        
+        //rescanning the text to write in the compressed bits 
+        // 2. how to use this write method 
+        for (int i : fileStore) {
+            String huffCode = encodingTable.get(i);
+            if (huffCode != null) // because of characters
+                numBits += huffCode.length();
+        }
+        
+        // write in the EOF
+        String codeOfEOF = encodingTable.get(IHuffConstants.PSEUDO_EOF);
+        numBits += codeOfEOF.length();
+
+        // setting class constants 
+        compressedFileSize = numBits;
+
+//        showString("Not working yet");
+//        myViewer.update("Still not working");
+//        throw new IOException("preprocess not implemented"); // wtf does this block of code do?
+        
+
+        return originalFileSize - numBits;
+    }
+
+
+    public void setViewer(IHuffViewer viewer) {
+        myViewer = viewer;
+    }
+
+    public int uncompress(InputStream in, OutputStream out) throws IOException {
+        throw new IOException("uncompress not implemented");
+        //return 0;
+    }
+    
+    private void showString(String s){
+        if(myViewer != null)
+            myViewer.update(s);
+    }
+    
+    // MAKE SURE TO DELETE THIS
+    public static void main(String[] args) throws IOException {
+        /*String s = "SmallTxt.txt";
+        int inbits;
+        BitInputStream bits = new BitInputStream(new FileInputStream(s));
+        while((inbits = bits.readBits(IHuffConstants.BITS_PER_WORD)) != -1) {
+            System.out.println(inbits);
+        }
+        
+        */
+    }
+}

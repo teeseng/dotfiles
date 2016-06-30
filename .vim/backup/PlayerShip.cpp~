@@ -1,0 +1,26 @@
+#include "PlayerShip.h"
+
+PlayerShip::PlayerShip() {
+    symbol = '^';
+    x = 0;
+    y = 0;
+}
+
+PlayerShip::PlayerShip(int a, int b) {
+    symbol = '^';
+    x = a;
+    y = b;
+}
+
+void PlayerShip :: timeStep(int) {
+    // handled in main.cpp 
+}
+
+char PlayerShip :: getShape() {
+    return symbol;
+}
+
+void PlayerShip :: setShape(char c) {
+    symbol = c;
+}
+

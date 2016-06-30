@@ -1,0 +1,47 @@
+public class prints {
+    
+    // main function/method
+    public static void main(String[] args) {
+        
+
+        // 4 primary variables int, boolean, double, char
+        // char 'a' 'b' '\' 
+        // int (integer)
+        // double 1.2, (real numbers)
+        // boolean true or false.
+        
+        /* Syntax
+         * <type> <variable name> = ~~~~~ ; 
+         *
+         *
+         * void = returning nothing
+         *
+        */
+        
+        int x = 4;
+        boolean isHeGay = false;
+        double smokeweedday = 4;
+        char ch = 'a';
+        String str = "Hi Guys!"; 
+        
+        // <function name>();
+        function1();  
+
+        x = 1 + 2; // reassigning x
+        ch = 'b'; // reassigning ch
+        
+        if(isHeGay) {
+        } 
+        else {
+        } 
+    }
+    
+    public static int function1() {
+        System.out.println("function");
+        return 1;
+    }
+    
+    
+
+
+}

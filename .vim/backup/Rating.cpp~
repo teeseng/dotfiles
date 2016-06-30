@@ -1,0 +1,8 @@
+
+#include "Rating.h"
+
+// Empty Rating constructor
+Rating::Rating() {}
+
+// Constructor for Rating class 
+Rating::Rating(Person* pperson, int ratings): pperson(pperson), ratings(ratings) {}

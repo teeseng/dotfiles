@@ -1,0 +1,27 @@
+#ifndef GAMEOBJECT_H_INCLUDED
+#define GAMEOBJECT_H_INCLUDED
+
+class GameObject {
+    protected:
+        int x; // 
+        int y; // y coordinate in the window
+        char symbol; // symbol that represents it
+    public:
+        // helper methods. Not sure if needed
+        virtual bool isCollision(GameObject& other);
+        virtual void timeStep(int) = 0;
+        virtual char getShape() = 0;
+        
+        // public helpers
+        void setX(int);
+        void setY(int);
+        void decY();
+        void decX();
+        void incY();
+        void incX();
+        int getX() const;
+        int getY() const;
+};
+
+
+#endif

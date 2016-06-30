@@ -1,0 +1,223 @@
+                    +-------------------------+
+                    |           CS 439        |
+                    | PROJECT 4: FILE SYSTEMS |
+                    |      DESIGN DOCUMENT    |
+                    +-------------------------+
+
+****EACH student submits a (unique) design document.****
+
+---- Name ----
+
+>> Fill your name, UT EID, CS login, email address, and unique number:
+
+Name: Andy Tseng
+EID: art2589
+CS login: andytsen
+Email: andydomokun@gmail.com
+Unique Number: 51075
+
+
+Slip days used on this project: 0
+
+---- GROUP ----
+
+>> Fill the names, UT EIDs, CS logins, email addresses, and unique numbers
+>> of your group members.  Also fill in each person's ranking on the 
+>> partner evaluation scale, as determined by you.
+
+Name1:
+EID1:
+CS login:
+Email:
+Unique Number:
+Ranking (scale below):
+
+Name2:
+EID2:
+CS login:
+Email:
+Unique Number:
+Ranking (scale below):
+
+Name3:
+EID2:
+CS login:
+Email:
+Unique Number:
+Ranking (scale below):
+
+
+---- PARTNER EVALUATION SCALE ----
+
+>> Excellent: Consistently went above and beyond - tutored others, carried
+>> more than his/her fair share of the load.
+
+>> Very Good: Consistently did what he/she was supposed to do, very well
+>> prepared and cooperative.
+
+>> Satisfactory: Usually did what he/she was supposed to do, minimally
+>> prepared and cooperative.
+
+>> Marginal: Sometimes failed to show up and/or rarely prepared.
+
+>> Deficient: Often failed to show up and/or rarely prepared.
+
+>> Unsatisfactory: Consistently failed to show up and/or unprepared.
+
+>> Superficial: Practically no participation.
+
+>> No Show: No participation at all.
+
+
+
+
+---- PRELIMINARIES ----
+
+>> If you have any preliminary comments on your submission, notes for the
+>> TAs, or extra credit, please give them here.
+
+>> Please cite any offline or online sources you consulted while
+>> preparing your submission, other than the Pintos documentation, course
+>> text, lecture notes, and course staff.
+
+		     INDEXED AND EXTENSIBLE FILES
+		     ============================
+
+---- DATA STRUCTURES ----
+
+>> A1: Copy here the declaration of each new or changed `struct' or
+>> `struct' member, global or static variable, `typedef', or
+>> enumeration.  Identify the purpose of each in 25 words or less.
+
+#define DIRECTS (64)
+#define 
+struct inode 
+{
+    struct lock inode_lock;         /* used for synchronization in directories 
+                                       and changes to files */
+    block_sector_t parent;          /* parent inode */ 
+}
+
+>> A2: What is the maximum size of a file supported by your inode
+>> structure?  Show your work.
+
+8 MB or 16384 sectors 
+120 ptrs per indirect block
+(120 * 120) + (16 * 120) + 64 = 16384
+
+---- SYNCHRONIZATION ----
+
+>> A3: Explain how your code avoids a race if two processes attempt to
+>> extend a file at the same time.
+
+We will lock the inode_lock when we are writing or allocating the inode.
+We always call it when calling memcpy and all directory functions. 
+
+>> A4: Suppose processes A and B both have file F open, both
+>> positioned at end-of-file.  If A reads and B writes F at the same
+>> time, A may read all, part, or none of what B writes.  However, A
+>> may not read data other than what B writes, e.g. if B writes
+>> nonzero data, A is not allowed to see all zeros.  Explain how your
+>> code avoids this race.
+
+When the file is opened and accessed at the EOF requires a lock and we 
+use a sort of eviction policy for reading the file to each userprog.
+
+>> A5: Explain how your synchronization design provides "fairness".
+>> File access is "fair" if readers cannot indefinitely block writers
+>> or vice versa.  That is, one or many processes reading from a file
+>> cannot forever prevent another process from writing to the file, and
+>> one or many processes writing to a file cannot forever prevent
+>> another process from reading the file.
+
+We prioritize writing files and allow the files to be read in their old version
+and allow the writing to be updated afterwards. We synchronize the file 
+when we take the lock when writing into the file and allow it to be read 
+during that time. 
+
+---- RATIONALE ----
+
+>> A6: Is your file layout a multilevel indexed structure?  If so, why
+>> did you choose this particular combination of direct, indirect, and
+>> doubly indirect blocks?  If not, why did you choose an alternative
+>> file structure, and what advantages and disadvantages does your
+>> structure have, compared to a multilevel index?
+
+I chose this particular combination of blocks because it adds up to exactly
+the limit of 8 MB that the file system project imposed on each file. 
+The disadvantages to this implementation is that the structs of directs 
+has a large amount (64 blocks direct) are all allocated so every inode
+has allocated all those blocks compared to others where little block_sector_t.
+
+			    SUBDIRECTORIES
+			    ==============
+
+---- DATA STRUCTURES ----
+
+>> B1: Copy here the declaration of each new or changed `struct' or
+>> `struct' member, global or static variable, `typedef', or
+>> enumeration.  Identify the purpose of each in 25 words or less.
+
+
+---- ALGORITHMS ----
+
+>> B2: Describe your code for traversing a user-specified path.  How
+>> do traversals of absolute and relative paths differ?
+
+Traversing to the absolute path uses strtok_r and using "\" as a delimiter and 
+"." and ".." as relative path according to the inode's current dir. 
+
+---- SYNCHRONIZATION ----
+
+>> B4: How do you prevent races on directory entries?  For example,
+>> only one of two simultaneous attempts to remove a single file
+>> should succeed, as should only one of two simultaneous attempts to
+>> create a file with the same name, and so on.
+
+When creating a file in the directory we do not lock the directory unless
+it is being used. 
+
+
+>> B5: Does your implementation allow a directory to be removed if it
+>> is open by a process or if it is in use as a process's current
+>> working directory?  If so, what happens to that process's future
+>> file system operations?  If that’s not allowed, how do you
+>> prevent it?
+
+We use the removed boolean in order to prevent other processes from using
+the files if the directory is closed. 
+
+
+---- RATIONALE ----
+
+>> B6: How is the current directory of a process represented in your
+>> implementation? How did you choose this representation?
+
+We put the directory in the thread itself and close it when it is done. We
+chose this in the understanding that ebery thread has its own directory it 
+is taking files and reading. It may change throughout the process's needs. 
+
+
+			   SURVEY QUESTIONS
+			   ================
+
+Answering these questions is optional, but it will help us improve the
+course in future quarters.  Feel free to tell us anything you
+want--these questions are just to spur your thoughts.  You may also
+choose to respond anonymously in the course evaluations at the end of
+the quarter.
+
+>> In your opinion, was this assignment, or any one of the three problems
+>> in it, too easy or too hard?  Did it take too long or too little time?
+
+>> Did you find that working on a particular part of the assignment gave
+>> you greater insight into some aspect of OS design?
+
+>> Is there some particular fact or hint we should give students in
+>> future quarters to help them solve the problems?  Conversely, did you
+>> find any of our guidance to be misleading?
+
+>> Do you have any suggestions for the TAs to more effectively assist
+>> students in future quarters?
+
+>> Any other comments?

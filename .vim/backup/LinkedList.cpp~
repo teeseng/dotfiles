@@ -1,0 +1,78 @@
+#include "LinkedList.h" /// include the header file for the linked list
+
+/* your class implementation*/
+using namespace std; 
+
+Node::Node(int val) {
+    value = val;
+    next = NULL;    
+}
+
+Node::~Node() {
+    delete next; // delete the pointer.  
+}
+
+void LinkedList::push(Node* n) {
+    if(s == 0) {
+        head = n;
+        head->next = NULL;
+
+    } else {
+        Node* curr = head;
+        while(curr->next) {
+            curr = curr->next;
+        } 
+        curr->next = n;
+        n->next = NULL; 
+    }
+    s++;
+}
+
+// constructor for it
+LinkedList::LinkedList() {
+    s = 0; 
+    head = NULL;
+}
+
+// Delete all the nodes and loop through to delete all nodes. 
+LinkedList::~LinkedList() {
+    if(s == 0) {
+        // no need to delete.  
+    } else {
+        Node *nDel = head;
+        while(nDel) {
+            nDel = head->next;
+            delete head;
+        }
+    }
+}
+
+/*
+ * pop() removes the head of the node and returns the val
+ */ 
+int LinkedList::pop() {
+    int ret = head->value;
+    head = head->next;
+    s--;
+    return ret;
+}
+
+int LinkedList::peek() {
+   return head->value; 
+}
+
+void LinkedList::print() {
+    Node* curr = head;
+    while(curr) {
+       cout << curr->value;
+       cout << " ";
+       curr = curr->next;
+    }
+    cout << endl;
+}
+
+int LinkedList::size() {
+    return s;
+}
+
+

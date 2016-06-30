@@ -1,0 +1,12 @@
+  .globl compute
+compute:
+	pushq %rdi
+	pushq $4
+	addq %r11, %r12
+	pushq %r12
+	pushq $2
+	pushq $4
+	subq %r13, %r14
+	pushq %r14
+	popq %rax
+	retq

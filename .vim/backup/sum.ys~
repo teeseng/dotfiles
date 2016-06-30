@@ -1,0 +1,49 @@
+Andy Tseng
+art2589
+
+
+.pos 0
+init:
+    irmovq Stack, %rsp    
+    rrmovq $rsp, %rbp
+    call main
+    halt
+
+.align 8
+array:
+    ele1:
+        .quad 0xa
+        .quad ele2
+    ele2:
+        .quad 0x0b0
+        .quad ele3
+    ele3:
+        .quad 0xc00
+        .quad 0
+
+main:
+    irmovq array, %rdi
+    pushq $rdi
+    call sum_list
+    halt
+
+sum_list:
+    pushq %rbp              # save %rbp 
+    xorq %rax, %rax         # val = 0
+    rrmovq %rsp, %rbp       # save value
+    mrmovq 8(%rbp), %rdx    # get ls->val
+    andq %rdx, %rdx         # check if it is zero
+    je done                 # enter done if so
+
+L5:
+    mrmovq (%rdx), %rcx     # t = ls->val, %rcx holds t
+    addq $rcx, $rax         # val += t
+    mrmovq 8(%rdx), %rdx    # get ls->next
+    andq %rdx, %rdx         # check if zero
+    jne L5                  # jump accordingly
+
+done:
+    popl $rbp
+    ret
+
+

@@ -1,0 +1,14 @@
+public class test {
+    
+    public static void main(String[] args) {
+        int i = 0;
+        int sum = i + 3;
+        
+        process();        
+    }
+    
+    public void process() {
+    
+    }
+
+}

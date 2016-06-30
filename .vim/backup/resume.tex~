@@ -1,0 +1,91 @@
+o.vimrc filsional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+
+\name{Andrew Tseng} % Your name
+\address{} % Your address
+\address{} % Your secondary addess (optional)
+\address{andydomokun@gmail.com} % Your phone number and email
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf University of Texas, Austin} \hfill {\em June 2004} \\ 
+B.S. in Computer Science \\
+GPA: 3.94
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Experience}
+
+\begin{rSubsection}{GT Learning Academy}{November 2013 - Present}{Private Tutor}{Sugar Land, TX}
+\item Tutor for High School students in physics, chemistry and calculus.
+\end{rSubsection}
+\end {rSection}
+%----------------------------------------------------------------------------------------
+%	SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Skills}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Programming Languages & Java, Python, C++, C, LaTeX and Javascript \\
+Technologies & Vim, Eclipse, Git, Unix \\
+Natural Languages & Chinese and English
+\end{tabular}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	Project Section
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Projects}
+{\bf Personal Website} \\
+Personal Website written in HTML/CSS/Javascript
+Repository: www.github.com/andytsen.github.io \\
+
+{\bf Huffman Compression} \\
+Course project implementing the Huffman compression process. Written in Java.
+Repository:www.github.com/Compressor 
+
+{\bf Something} \\
+hi
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+
+
+

@@ -1,0 +1,47 @@
+#include <iostream>
+#include <ncurses.h>
+#include <stdlib.h>
+
+using namespace std;
+
+int main() {
+    
+    initscr(); // initialize functions for ncurses
+    noecho(); // prevents echo
+    keypad(stdscr, TRUE);
+    nodelay(stdscr, false);
+    start_color();
+    
+    const static int xMax = 18;
+    const static int yMax = 21;
+    
+    bool quit = false;
+    int ch = 0;
+    int yellow_points = 0;
+    int red_points = 0;
+    
+   
+     
+    bool full = false;
+    bool connect_four = false;
+
+    while(full || connect_four) {
+        if(has_colors() == false) {
+            endwin();
+            cout << "Your terminal does not support color" << endl;
+            exit(1);
+        } else {
+            start_color();
+            erase();
+            ch = ERR;
+            while(ch == ERR) {
+                init_pair(1, COLOR_RED, COLOR_YELLOW);
+                attron(COLOR_PAIR(1));
+            }
+        }             
+
+    }
+
+
+    endwin(); // resets terminal and ends win
+}

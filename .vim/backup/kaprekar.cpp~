@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main()
+{
+    int l, h;
+    std::cin >> l >> h;
+    long result; 
+
+    for(int i = l; i < h; i++)
+    {
+        int r = i * i;
+        int n = 0;
+        while(int temp = r)
+        {
+            n++;
+            temp /= 10;
+        }
+
+        int l = n/2;
+        int d = n - l;
+
+        
+         
+
+    }
+
+    return 0;
+}

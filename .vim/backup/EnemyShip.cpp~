@@ -1,0 +1,40 @@
+#include "EnemyShip.h"
+
+EnemyShip::EnemyShip() {
+    symbol = '#';
+    x = 0;
+    y = 0;
+}
+
+EnemyShip::EnemyShip(int a, int b, char c) {
+    x = a;
+    y = b;
+    symbol = c;
+}
+
+void EnemyShip::timeStep(int ticks) {
+    if(ticks == 2) {
+        y++;
+    } else if(ticks == 1) {
+        x--;
+    } else {
+        x++;
+    }
+}
+
+void EnemyShip :: setRate(int r) {
+    rate = r;
+} 
+
+double EnemyShip :: getRate() {
+    return rate;
+}
+
+char EnemyShip::getGun() {
+    return gun;
+}
+
+void EnemyShip :: setGun(char g) {
+    gun = g;
+}
+

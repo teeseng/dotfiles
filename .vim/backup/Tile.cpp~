@@ -1,0 +1,27 @@
+#include "Tile.h"
+
+Tile :: Tile() {
+    x = 0;
+    y = 0;
+    symbol = '#';
+}
+
+Tile::Tile(int a, int b) {
+    x = a;
+    y = b;
+    symbol = '#';
+}
+
+void Tile::setShape(char c) {
+    symbol = c;
+}
+
+char Tile::getShape() {
+    return symbol;
+}
+
+void Tile::timeStep(int ticks) {
+    if(symbol == '#') {
+        symbol = 0;
+    }
+}

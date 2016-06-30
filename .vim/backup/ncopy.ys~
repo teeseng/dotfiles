@@ -1,0 +1,176 @@
+#/* $begin ncopy-ys */
+##################################################################
+# ncopy.ys - Copy a src block of len words to dst.
+# Return the number of positive words (>0) contained in src.
+#
+# Andy Tseng
+# art2589
+#
+# Describe how and why you modified the baseline code.
+# 1. Replaced instances of all opq and irmovq with iaddq instruction. 
+# 2. Since iaddq sets CC, any form of andq is not needed afterwards. 
+# 3. Jump table used. Size about 8. 
+# 4. Unrolling is a good way to make it ~8.50, but the rest does not fly. Most efficient loop unrolling is unrolling by a factor of 4. 
+#
+##################################################################
+# Do not modify this portion
+# Function prologue.
+# %rdi = src, %rsi = dst, %rdx = len
+
+##################################################################
+# You can modify this portion
+# Loop header
+
+ncopy:
+	xorq %rax, %rax
+
+loop:
+	iaddq $-8, %rdx
+	jg header_unroll8
+	iaddq $8, %rdx
+	addq %rdx, %rdx
+	addq %rdx, %rdx
+	addq %rdx, %rdx
+	mrmovq JT(%rdx), %rdx
+	pushq %rdx
+	ret
+
+header_unroll8:
+	iaddq $8, %rdx
+
+un_loop8:
+	mrmovq 56(%rdi), %r8
+	mrmovq 48(%rdi), %r9
+	mrmovq 40(%rdi), %r10
+	mrmovq 32(%rdi), %r11
+
+	mrmovq 24(%rdi), %r12
+	mrmovq 16(%rdi), %r13
+	mrmovq 8(%rdi), %r14
+	mrmovq (%rdi), %rcx
+
+	rmmovq %r8, 56(%rsi)
+	rmmovq %r9, 48(%rsi)
+	rmmovq %r10, 40(%rsi)
+	rmmovq %r11, 32(%rsi)
+
+
+	rmmovq %r12, 24(%rsi)
+	rmmovq %r13, 16(%rsi)
+	rmmovq %r14, 8(%rsi)
+	rmmovq %rcx, (%rsi) 
+
+I1:
+	andq %r8, %r8
+	jle I2
+	iaddq $1, %rax
+I2:
+	andq %r9, %r9
+	jle I3
+	iaddq $1, %rax
+I3:
+	andq %r10, %r10
+	jle I4
+	iaddq $1, %rax
+I4:
+	andq %r11, %r11
+	jle I5
+	iaddq $1, %rax
+I5:
+	andq %r12, %r12
+	jle I6
+	iaddq $1, %rax
+I6:
+	andq %r13, %r13
+	jle I7
+	iaddq $1, %rax
+I7:
+	andq %r14, %r14
+	jle I8
+	iaddq $1, %rax
+I8:
+	andq %rcx, %rcx
+	jle inc
+	iaddq $1, %rax	
+
+inc:
+	iaddq $64, %rsi
+	iaddq $64, %rdi
+	iaddq $-8, %rdx 
+	iaddq $-8, %rdx
+	jg header_unroll8
+	iaddq $8, %rdx
+	jmp loop
+
+J8:
+	mrmovq 56(%rdi), %r10
+	rmmovq %r10, 56(%rsi)
+	andq %r10, %r10
+	jle J7
+	iaddq $1, %rax
+J7:
+	mrmovq 48(%rdi), %r10
+	rmmovq %r10, 48(%rsi)
+	andq %r10, %r10
+	jle J6
+	iaddq $1, %rax
+J6:
+	mrmovq 40(%rdi), %r10
+	rmmovq %r10, 40(%rsi)
+	andq %r10, %r10
+	jle J5
+	iaddq $1, %rax
+J5:
+	mrmovq 32(%rdi), %r10
+	rmmovq %r10, 32(%rsi)
+	andq %r10, %r10
+	jle J4
+	iaddq $1, %rax
+J4:
+	mrmovq 24(%rdi), %r10
+	rmmovq %r10, 24(%rsi)
+	andq %r10, %r10
+	jle J3
+	iaddq $1, %rax
+J3:
+	mrmovq 16(%rdi), %r10
+	rmmovq %r10, 16(%rsi)
+	andq %r10, %r10
+	jle J2
+	iaddq $1, %rax
+J2:
+	mrmovq 8(%rdi), %r10
+	rmmovq %r10, 8(%rsi)
+	andq %r10, %r10
+	jle J1
+	iaddq $1, %rax
+J1:
+	mrmovq (%rdi), %r10
+	rmmovq %r10, (%rsi)
+	andq %r10, %r10
+	jle Done
+	iaddq $1, %rax
+
+##################################################################
+# Do not modify the following section of code
+# Function epilogue.
+
+Done:
+	ret
+
+.align 8
+JT:
+	.quad Done
+	.quad J1
+	.quad J2
+	.quad J3
+	.quad J4
+	.quad J5
+	.quad J6
+	.quad J7
+	.quad J8
+
+##########################################################################
+# Keep the following label at the end of your function
+End:
+#/* $end ncopy-ys */

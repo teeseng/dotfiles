@@ -1,0 +1,155 @@
+/*
+me: Andy Tseng
+Eid: art2589
+
+Q1: Why are the arrays passed to both print life functions const? 
+
+    The 2D array that is printed shows the results of the generation pass 
+    on the actual play array. You do not want to change the data within that
+    array because it is important to calculating the next generation. 
+
+Q2: Why are the arrays passed to both play life functions not const?
+
+    The 2D array that is passed to play the game must not be const as it is used
+    to change and show the new generation. 
+    
+Q3: If we did change the arrays passed to play life functions to make them const, 
+        what else would have to happen to make play life work? <your answer>
+
+    We would probably have to return somekind of pointer to a pointer bool??? 
+    [Not sure]? 
+*/
+
+#include <iostream>
+using namespace std;
+
+/// global constant for fixed rows and cols of the 2D array
+const int NUM_ROWS = 10;
+const int NUM_COLS = 10;
+
+/** function declaration 
+ */
+
+void printLife2DArray(const bool[][NUM_COLS]);
+void playLife2DArray(bool[][NUM_COLS]);
+int countNeighbors(bool[][NUM_COLS], int, int);
+int wrap(int);
+
+
+int main() {
+    /// read in the number of iterations to run
+    
+    int numGen;
+    cin >> numGen;
+    /** make a 2d bool array with the number of rows and cols
+
+    Some input examples and explanation of game of life
+    Look at http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns
+    */
+
+    /** print out what game we are playing */
+    cout << "Game Of Life rows=" << NUM_ROWS << " cols=" << NUM_COLS << 
+                  " iterations=" << numGen << endl;
+
+    /** 
+         start your code 
+     */    
+    
+    char row[NUM_ROWS + 1];
+    int r = 0;
+    int c = 0;
+    bool world[NUM_ROWS][NUM_COLS];
+
+    cin.getline(row, NUM_ROWS + 1);
+    while(cin.getline(row, NUM_ROWS + 1) == 1) {
+        int i = 0;
+        c = 0;
+        while(row[i] != '\0') {
+            if(row[i] == '*') 
+                world[r][c] = true;
+            else 
+                world[r][c] = false;
+            c++;
+            i++;
+        }
+        r++;
+    }
+
+    printLife2DArray(world); 
+    for(int iterations = 0; iterations < numGen; iterations++) {
+        playLife2DArray(world);
+    }
+
+    return 0; /// return a ok 
+}
+
+void playLife2DArray(bool world[][NUM_COLS]) {
+    // copy
+    bool copyWorld[NUM_ROWS][NUM_COLS];
+    for(int i = 0; i < NUM_ROWS; i++) {
+        for(int j = 0; j < NUM_COLS; j++) {
+            copyWorld[i][j] = world[i][j]; 
+        }
+    }
+
+    for(int r = 0; r < NUM_ROWS; r++)  
+        for(int c = 0; c < NUM_COLS; c++) {
+            int n = countNeighbors(copyWorld, r, c);
+            if(world[r][c] == true) {
+                if(n == 3 || n == 2) {
+                    world[r][c] = true;
+                } else { world[r][c] = false; }
+            } else {
+                world[r][c] = false;
+                if(n == 3) {
+                    world[r][c] = true;
+                }
+            }
+        }
+
+    printLife2DArray(world);
+} 
+
+void printLife2DArray(const bool world[][NUM_COLS]) {
+    for(int r = 0; r < NUM_ROWS; r++) {
+        for(int c = 0; c < NUM_COLS; c++) {
+            if(world[r][c] == true) {
+                cout << '*';
+            } else {
+                cout << '.';
+            }
+        }
+        cout << '\n';
+    }
+    cout << endl;
+}
+
+int countNeighbors(bool world[][NUM_COLS], int row, int col) {
+    int neighbors = 0;
+    for(int r = row - 1; r <= row + 1; r++) {
+        int nr = wrap(r);
+        for(int c = col - 1; c <= col + 1; c++) {
+           int nc = wrap(c);
+           if(world[nr][nc] == true) 
+                neighbors++;
+        }
+    }
+    if(world[row][col] == true) {
+        neighbors -= 1;
+    }
+    return neighbors;
+}
+
+int wrap(int dim) {
+    if(dim < 0) {
+        return 9;
+    } else if(dim > 9) {
+        return 0;
+    } else {
+        return dim;
+    }
+}
+
+
+
+

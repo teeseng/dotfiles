@@ -1,0 +1,16 @@
+// Question 4 - 7 on Homework 1
+
+#include <stdlib.h>
+#include <stdio.h>
+void hello(int x) {
+    if(x > 0) {
+        printf("Hello, World!\n");
+        hello(x - 1); 
+    }
+}
+
+int main() {
+   int x = 9; 
+   hello(x);  
+
+}

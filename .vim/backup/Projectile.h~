@@ -1,0 +1,20 @@
+#ifndef PROJECTILE_H_INCLUDED
+#define PROJECTILE_H_INCLUDED
+#include "GameObject.h"
+
+class Projectile : public GameObject {
+    public:
+        Projectile();
+        Projectile(int, int, char);
+        Projectile(int, int);
+        Projectile(char t);
+        virtual void timeStep(int);
+        virtual char getShape();
+        virtual void setShape(char);
+
+    protected:
+        int rate; // rate at which the projectile moves. 
+
+};
+
+#endif

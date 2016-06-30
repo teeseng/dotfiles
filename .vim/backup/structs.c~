@@ -1,0 +1,22 @@
+// structs
+#include <stdio.h>
+
+// cannot initialize values within the struct
+struct Pokemon {
+    int baseDef;
+    char *name;
+    char *type;
+};
+
+int main() {
+    struct Pokemon p;
+    p.baseDef = 0;
+    p.name = "Mudkip";
+    p.type = "Water";
+}
+
+
+
+
+
+

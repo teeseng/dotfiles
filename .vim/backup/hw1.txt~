@@ -1,0 +1,36 @@
+Homework #: 1
+Student Name: Andrew Tseng
+EID: art2589
+CS login: andytsen
+Email address: andydomokun@utexas.edu 
+Unique Number: 51080
+
+1. create name tent
+
+2. A paired programming log should have the date, time, and the group
+members present during the work session. The log should also contain
+the amount of driving each person has done during the session. Each
+driver should switch out every 30 minutes and 80% of the time all 
+group members should work together at one computer. 
+
+3. 
+    the "time make" command outputs 3 lines of time values in seconds
+    the first line times the program from initiation to termination
+    the second line times the user CPU time
+    the third line times the system CPU time. 
+
+
+4. 
+
+void hello(int x) {
+    if(x > 0) 
+        printf("Hello, World!\n");
+    hello(x - 1); 
+} 
+
+5. gcc -g -O hello.c -o hello
+
+6. Commands I used: break, run, next, step    
+   My recursive call was on line 10. 
+
+7. x = # of args or argc which is 5. At the start of the main functions.  

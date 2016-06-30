@@ -1,0 +1,384 @@
+J64:
+	mrmovq 504(%rdi), %r10
+	rmmovq %r10, 504(%rsi)
+	andq %r10, %r10
+	jg J63
+	iaddq $-1, %rax
+J63:
+	mrmovq 496(%rdi), %r10
+	rmmovq %r10, 496(%rsi)
+	andq %r10, %r10
+	jg J62
+	iaddq $-1, %rax
+J62:
+	mrmovq 488(%rdi), %r10
+	rmmovq %r10, 488(%rsi)
+	andq %r10, %r10
+	jg J61
+	iaddq $-1, %rax
+J61:
+	mrmovq 480(%rdi), %r10
+	rmmovq %r10, 480(%rsi)
+	andq %r10, %r10
+	jg J60
+	iaddq $-1, %rax
+J60:
+	mrmovq 472(%rdi), %r10
+	rmmovq %r10, 472(%rsi)
+	andq %r10, %r10
+	jg J59
+	iaddq $-1, %rax
+J59:
+	mrmovq 464(%rdi), %r10
+	rmmovq %r10, 464(%rsi)
+	andq %r10, %r10
+	jg J58
+	iaddq $-1, %rax
+J58:
+	mrmovq 456(%rdi), %r10
+	rmmovq %r10, 456(%rsi)
+	andq %r10, %r10
+	jg J57
+	iaddq $-1, %rax
+J57:
+	mrmovq 448(%rdi), %r10
+	rmmovq %r10, 448(%rsi)
+	andq %r10, %r10
+	jg J56
+	iaddq $-1, %rax
+J56:
+	mrmovq 440(%rdi), %r10
+	rmmovq %r10, 440(%rsi)
+	andq %r10, %r10
+	jg J55
+	iaddq $-1, %rax
+J55:
+	mrmovq 432(%rdi), %r10
+	rmmovq %r10, 432(%rsi)
+	andq %r10, %r10
+	jg J54
+	iaddq $-1, %rax
+J54:
+	mrmovq 424(%rdi), %r10
+	rmmovq %r10, 424(%rsi)
+	andq %r10, %r10
+	jg J53
+	iaddq $-1, %rax
+J53:
+	mrmovq 416(%rdi), %r10
+	rmmovq %r10, 416(%rsi)
+	andq %r10, %r10
+	jg J52
+	iaddq $-1, %rax
+J52:
+	mrmovq 408(%rdi), %r10
+	rmmovq %r10, 408(%rsi)
+	andq %r10, %r10
+	jg J51
+	iaddq $-1, %rax
+J51:
+	mrmovq 400(%rdi), %r10
+	rmmovq %r10, 400(%rsi)
+	andq %r10, %r10
+	jg J50
+	iaddq $-1, %rax
+J50:
+	mrmovq 392(%rdi), %r10
+	rmmovq %r10, 392(%rsi)
+	andq %r10, %r10
+	jg J49
+	iaddq $-1, %rax
+J49:
+	mrmovq 384(%rdi), %r10
+	rmmovq %r10, 384(%rsi)
+	andq %r10, %r10
+	jg J48
+	iaddq $-1, %rax
+J48:
+	mrmovq 376(%rdi), %r10
+	rmmovq %r10, 376(%rsi)
+	andq %r10, %r10
+	jg J47
+	iaddq $-1, %rax
+J47:
+	mrmovq 368(%rdi), %r10
+	rmmovq %r10, 368(%rsi)
+	andq %r10, %r10
+	jg J46
+	iaddq $-1, %rax
+J46:
+	mrmovq 360(%rdi), %r10
+	rmmovq %r10, 360(%rsi)
+	andq %r10, %r10
+	jg J45
+	iaddq $-1, %rax
+J45:
+	mrmovq 352(%rdi), %r10
+	rmmovq %r10, 352(%rsi)
+	andq %r10, %r10
+	jg J44
+	iaddq $-1, %rax
+J44:
+	mrmovq 344(%rdi), %r10
+	rmmovq %r10, 344(%rsi)
+	andq %r10, %r10
+	jg J43
+	iaddq $-1, %rax
+J43:
+	mrmovq 336(%rdi), %r10
+	rmmovq %r10, 336(%rsi)
+	andq %r10, %r10
+	jg J42
+	iaddq $-1, %rax
+J42:
+	mrmovq 328(%rdi), %r10
+	rmmovq %r10, 328(%rsi)
+	andq %r10, %r10
+	jg J41
+	iaddq $-1, %rax
+J41:
+	mrmovq 320(%rdi), %r10
+	rmmovq %r10, 320(%rsi)
+	andq %r10, %r10
+	jg J40
+	iaddq $-1, %rax
+J40:
+	mrmovq 312(%rdi), %r10
+	rmmovq %r10, 312(%rsi)
+	andq %r10, %r10
+	jg J39
+	iaddq $-1, %rax
+J39:
+	mrmovq 304(%rdi), %r10
+	rmmovq %r10, 304(%rsi)
+	andq %r10, %r10
+	jg J38
+	iaddq $-1, %rax
+J38:
+	mrmovq 296(%rdi), %r10
+	rmmovq %r10, 296(%rsi)
+	andq %r10, %r10
+	jg J37
+	iaddq $-1, %rax
+J37:
+	mrmovq 288(%rdi), %r10
+	rmmovq %r10, 288(%rsi)
+	andq %r10, %r10
+	jg J36
+	iaddq $-1, %rax
+J36:
+	mrmovq 280(%rdi), %r10
+	rmmovq %r10, 280(%rsi)
+	andq %r10, %r10
+	jg J35
+	iaddq $-1, %rax
+J35:
+	mrmovq 272(%rdi), %r10
+	rmmovq %r10, 272(%rsi)
+	andq %r10, %r10
+	jg J34
+	iaddq $-1, %rax
+J34:
+	mrmovq 264(%rdi), %r10
+	rmmovq %r10, 264(%rsi)
+	andq %r10, %r10
+	jg J33
+	iaddq $-1, %rax
+J33:
+	mrmovq 256(%rdi), %r10
+	rmmovq %r10, 256(%rsi)
+	andq %r10, %r10
+	jg J32
+	iaddq $-1, %rax
+J32:
+	mrmovq 248(%rdi), %r10
+	rmmovq %r10, 248(%rsi)
+	andq %r10, %r10
+	jg J31
+	iaddq $-1, %rax
+J31:
+	mrmovq 240(%rdi), %r10
+	rmmovq %r10, 240(%rsi)
+	andq %r10, %r10
+	jg J30
+	iaddq $-1, %rax
+J30:
+	mrmovq 232(%rdi), %r10
+	rmmovq %r10, 232(%rsi)
+	andq %r10, %r10
+	jg J29
+	iaddq $-1, %rax
+J29:
+	mrmovq 224(%rdi), %r10
+	rmmovq %r10, 224(%rsi)
+	andq %r10, %r10
+	jg J28
+	iaddq $-1, %rax
+J28:
+	mrmovq 216(%rdi), %r10
+	rmmovq %r10, 216(%rsi)
+	andq %r10, %r10
+	jg J27
+	iaddq $-1, %rax
+J27:
+	mrmovq 208(%rdi), %r10
+	rmmovq %r10, 208(%rsi)
+	andq %r10, %r10
+	jg J26
+	iaddq $-1, %rax
+J26:
+	mrmovq 200(%rdi), %r10
+	rmmovq %r10, 200(%rsi)
+	andq %r10, %r10
+	jg J25
+	iaddq $-1, %rax
+J25:
+	mrmovq 192(%rdi), %r10
+	rmmovq %r10, 192(%rsi)
+	andq %r10, %r10
+	jg J24
+	iaddq $-1, %rax
+J24:
+	mrmovq 184(%rdi), %r10
+	rmmovq %r10, 184(%rsi)
+	andq %r10, %r10
+	jg J23
+	iaddq $-1, %rax
+J23:
+	mrmovq 176(%rdi), %r10
+	rmmovq %r10, 176(%rsi)
+	andq %r10, %r10
+	jg J22
+	iaddq $-1, %rax
+J22:
+	mrmovq 168(%rdi), %r10
+	rmmovq %r10, 168(%rsi)
+	andq %r10, %r10
+	jg J21
+	iaddq $-1, %rax
+J21:
+	mrmovq 160(%rdi), %r10
+	rmmovq %r10, 160(%rsi)
+	andq %r10, %r10
+	jg J20
+	iaddq $-1, %rax
+J20:
+	mrmovq 152(%rdi), %r10
+	rmmovq %r10, 152(%rsi)
+	andq %r10, %r10
+	jg J19
+	iaddq $-1, %rax
+J19:
+	mrmovq 144(%rdi), %r10
+	rmmovq %r10, 144(%rsi)
+	andq %r10, %r10
+	jg J18
+	iaddq $-1, %rax
+J18:
+	mrmovq 136(%rdi), %r10
+	rmmovq %r10, 136(%rsi)
+	andq %r10, %r10
+	jg J17
+	iaddq $-1, %rax
+J17:
+	mrmovq 128(%rdi), %r10
+	rmmovq %r10, 128(%rsi)
+	andq %r10, %r10
+	jg J16
+	iaddq $-1, %rax
+J16:
+	mrmovq 120(%rdi), %r10
+	rmmovq %r10, 120(%rsi)
+	andq %r10, %r10
+	jg J15
+	iaddq $-1, %rax
+J15:
+	mrmovq 112(%rdi), %r10
+	rmmovq %r10, 112(%rsi)
+	andq %r10, %r10
+	jg J14
+	iaddq $-1, %rax
+J14:
+	mrmovq 104(%rdi), %r10
+	rmmovq %r10, 104(%rsi)
+	andq %r10, %r10
+	jg J13
+	iaddq $-1, %rax
+J13:
+	mrmovq 96(%rdi), %r10
+	rmmovq %r10, 96(%rsi)
+	andq %r10, %r10
+	jg J12
+	iaddq $-1, %rax
+J12:
+	mrmovq 88(%rdi), %r10
+	rmmovq %r10, 88(%rsi)
+	andq %r10, %r10
+	jg J11
+	iaddq $-1, %rax
+J11:
+	mrmovq 80(%rdi), %r10
+	rmmovq %r10, 80(%rsi)
+	andq %r10, %r10
+	jg J10
+	iaddq $-1, %rax
+J10:
+	mrmovq 72(%rdi), %r10
+	rmmovq %r10, 72(%rsi)
+	andq %r10, %r10
+	jg J9
+	iaddq $-1, %rax
+J9:
+	mrmovq 64(%rdi), %r10
+	rmmovq %r10, 64(%rsi)
+	andq %r10, %r10
+	jg J8
+	iaddq $-1, %rax
+J8:
+	mrmovq 56(%rdi), %r10
+	rmmovq %r10, 56(%rsi)
+	andq %r10, %r10
+	jg J7
+	iaddq $-1, %rax
+J7:
+	mrmovq 48(%rdi), %r10
+	rmmovq %r10, 48(%rsi)
+	andq %r10, %r10
+	jg J6
+	iaddq $-1, %rax
+J6:
+	mrmovq 40(%rdi), %r10
+	rmmovq %r10, 40(%rsi)
+	andq %r10, %r10
+	jg J5
+	iaddq $-1, %rax
+J5:
+	mrmovq 32(%rdi), %r10
+	rmmovq %r10, 32(%rsi)
+	andq %r10, %r10
+	jg J4
+	iaddq $-1, %rax
+J4:
+	mrmovq 24(%rdi), %r10
+	rmmovq %r10, 24(%rsi)
+	andq %r10, %r10
+	jg J3
+	iaddq $-1, %rax
+J3:
+	mrmovq 16(%rdi), %r10
+	rmmovq %r10, 16(%rsi)
+	andq %r10, %r10
+	jg J2
+	iaddq $-1, %rax
+J2:
+	mrmovq 8(%rdi), %r10
+	rmmovq %r10, 8(%rsi)
+	andq %r10, %r10
+	jg J1
+	iaddq $-1, %rax
+J1:
+	mrmovq (%rdi), %r10
+	rmmovq %r10, (%rsi)
+	andq %r10, %r10
+	jg Done
+	iaddq $-1, %rax

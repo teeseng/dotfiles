@@ -1,0 +1,15 @@
+
+ stableMatching {
+    Initialize all l in L and r in R to free
+    while exists free left l who still has a right r to propose to {
+       r = l's highest ranked such right
+       if r is free
+         (l, r) become engaged
+       else some pair (l', r) already exists
+         if r prefers l to l'
+           (l, r) become engaged
+           l' becomes free
+         else
+           (l', r) remain engaged
+    }
+}

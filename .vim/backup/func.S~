@@ -1,0 +1,84 @@
+#define SIZE(func) \
+        .global func ## Bytes; \
+func ## Bytes: .long func ## End - func
+
+	.data
+	SIZE(fourtyTwo)
+	SIZE(add)
+	SIZE(max)
+	SIZE(padd)
+	SIZE(amax)
+	SIZE(sum)
+	SIZE(len)
+	SIZE(rev)
+		
+
+	.text
+	.globl fourtyTwo
+	# int fortyTwo()
+
+fourtyTwo:
+	movl $42, %eax
+	ret
+fourtyTwoEnd:
+
+
+	.globl add
+	# int add(int x, int y)
+add:
+	mov 4(%esp), %eax
+	add 8(%esp), %eax
+	ret
+addEnd:
+
+	.globl max
+	# int max(int x, int y)
+max:
+	movl 4(%esp), %edx
+	movl 8(%esp), %ecx
+	cmp %edx, %ecx
+	cmovg %ecx, %eax
+	cmovl %edx, %eax
+	ret
+maxEnd:
+
+	.global padd
+	# int add(int *px, int *py)
+padd:	
+	movl (4(%esp)), %eax
+	addl (8(%esp)), %eax
+	ret
+paddEnd:
+
+	.global amax
+	# int amax(int* array, int count)
+amax:
+	loop:
+		movl 4(%esp), %edx
+		movl 8(%esp), %ecx
+		
+	then:	 
+	ret
+amaxEnd:
+
+	.global len
+	# long len(char* str)
+len:
+	mov $42,%eax
+	ret
+lenEnd:
+
+
+	.global sum
+	# int sum(char* str)
+sum:
+	mov $42,%eax
+	ret
+sumEnd:
+
+	.global rev
+	# void rev(char * s)
+rev:
+	mov $42,%eax
+	ret
+revEnd:

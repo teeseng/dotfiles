@@ -1,0 +1,128 @@
+/** 
+Name: Andy Tseng
+Eid: art2589
+
+*/
+
+#include <iostream> /// for cout, cin
+#include <fstream> /// for ifstream
+
+using namespace std;
+
+
+/** function declarations
+    you will need to write the definitions of these functions below.
+    DO NOT MODIFY the declarations.
+    You may create your own functions, but you must use these.
+*/
+
+/**
+    1D array version
+    Use pointer arithmetic to go through the array
+    input:  char*: board
+            char*: a word
+            int: num rows
+            int: num cols
+    output: char*: the solution board
+*/
+char* findMatch1D(char*, char* , const int , const int );
+
+
+/**
+    print the board
+    1D array version
+    Use pointer arithmetic to go through the array
+    input:  char*: board
+            int: num rows
+            int: num cols
+*/
+void print1D(char*, const int , const int );
+
+/**
+    2D array version
+    Use array indexing to go through the array
+    input:  char**: board
+            char*: a word
+            int: num rows
+            int: num cols
+            output: char**: the solution board
+*/
+char** findMatch2D(char**, char* , const int, const int);
+
+/**
+    print the board
+    2D array version
+    input:  char**: board
+            int: num rows
+            int: num cols
+*/
+void print2D(char**, const int , const int );
+
+
+int main(int argc, char const **argv) {    
+    /* get the word and the filename from our command line input
+        This can be done using input file stream (ifstream) which is an input
+         stream (istream). cin is also a (istream), so once you get you file
+         stream you can use it nearly the same as cin
+        int i;
+        ifstream file("nameOfYourFile");
+        file >> i; 
+    */
+    /// read in filename from command line argument
+    /// read in word from command line argument
+    /// read in board dimensions from file
+    /// read in 1D or 2D array file (1 for 1D, 2 for 2D)
+    /// read in board from file
+    
+    /** 
+        your code
+    */
+    
+    int rows;
+    int cols;
+    int mode;
+    const char* filename = argv[1];
+    const char* wordToSearch = argv[2];
+
+    ifstream file(filename);
+    file >> rows;
+    file >> cols;
+    file >> mode;
+    
+    if(mode == 2) {
+        // mode 2
+        char board[rows][cols];
+        char letter;
+        for(int r = 0; r < rows; r++) {
+            for(int c = 0; c < cols; c++) {
+                file >> letter;
+                board[r][c] = letter;     
+            }
+        }     
+    } else {
+        // mode 1
+        
+    }   
+           
+    
+    
+    return 0; /// return a ok
+}
+
+char* find1DMatch(char* board, char* word, const int rows, const int cols) {
+    char* solvedLine;
+    return solvedLine;
+}
+
+void print1D(char* array, const int rows, const int cols) {
+
+} 
+
+char** find2DMatch(char** baord, char* word, const int rows, const int cols) {
+    char** solvedBoard;
+    return solvedBoard;
+}
+
+void print2D(char** board, const int rows, const int cols) {
+
+}

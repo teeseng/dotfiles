@@ -1,0 +1,13 @@
+// This is a C file that has all sorts of sorting algorithms. Meant for review not
+// implementation. 
+//
+
+#define SIZE 100 
+
+int main() {
+    return SIZE;
+}
+
+
+
+

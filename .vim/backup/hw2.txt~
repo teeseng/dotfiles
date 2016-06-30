@@ -1,0 +1,43 @@
+1. 93 12's, 87 10's, and 107 87's. 
+    Command: sort nums.txt | uniq -c 
+
+2.  Average time for System call getuid : 376.778015 
+    Average time for Function call hello() : 15.080000  
+
+
+3. 6 processes
+
+4.  
+    Process A: 5s quantum
+    Process B: 40s quantum
+    Process C: 40s quantum 
+
+
+5. 
+
+int i;      /* stored in static */   
+char * j;   // heap 
+
+void foo(int a){
+
+   int b;           stored in the stack 
+   static float c;   stored in static
+
+   /*do stuff*/
+
+}
+
+int main(int argc, char**argv){
+
+   int * m;     stored in heap 
+   int g;       stored in stack 
+   double z;    stored in stack 
+
+   j = malloc(MAXBUF*sizeof(char)); stored in heap 
+
+   createThread(0, foo(), 2); 
+   createThread(1, foo(), 4);
+
+   /*do stuff*/
+
+}

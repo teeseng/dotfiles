@@ -1,0 +1,84 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+/* Documentation 
+ * LinkedList begins with 1->2->3->4->5 in order
+ * Inserting nodes at the end. Example: adding 9 leads to 1->2->3->4
+ * ->5->9. 
+ * Removing removes the last node of the linked list. 
+ *
+ *
+ *
+ * */
+
+
+/* node struct for linkedlist */
+struct node {
+    int data;
+    struct node *next; 
+};
+
+struct node *first; 
+struct node *last;
+
+void add(int n) {
+    struct node *newNode = (struct node*)malloc(sizeof(struct node)); 
+    newNode->data = n; 
+    newNode->next = NULL;
+
+    if(first) {
+        last->next = newNode; 
+        last = newNode; 
+    }
+    else {
+        first = newNode; 
+        last = newNode; 
+    }
+}
+
+void removeNode() {
+    struct node *curr = first;
+    struct node *prev;
+
+    if(first->next) {
+        while(curr->next) {
+            prev = curr;
+            curr = curr->next; 
+        }
+        free(prev->next);
+        prev->next = NULL;
+    } else {
+        free(first);
+        first = NULL;
+    }
+}
+
+
+int main(int argc, char *argv[]) {
+    add(1);
+    add(2);
+    add(3);
+    add(4);
+    add(5); 
+    add(9);
+
+    struct node *curr = first; 
+    printf("This is the LinkedList so far: \n");
+    while(curr) {
+        printf("%d ", curr->data);
+        curr = curr->next; 
+    }
+    printf("\n");
+
+    removeNode();
+    
+    struct node *ncurr = first; 
+    printf("This is the LinkedList so far: \n");
+    while(ncurr) {
+        printf("%d ", ncurr->data);
+        ncurr = ncurr->next; 
+    }
+    printf("\n");
+
+    return 0;
+}

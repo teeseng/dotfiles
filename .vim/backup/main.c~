@@ -1,0 +1,146 @@
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
+// helper functions
+int isLetter(char);
+int isNum(char);
+char family(char);
+void push(int);
+void pushi(char*, int);
+void pop();
+int stpop();
+
+// the stack and helper functions for it
+int sp = 0;
+int stack[500];
+
+int main(int argc, char* argv[]) {
+    printf("\t.globl compute\n\n");
+    printf("compute:\n");
+    
+    int i;
+    for(i = 1; i < argc; i++) {
+        char c = *(argv[i]);
+        char f = family(c);
+        
+        switch(f) { 
+           case '+':
+                if(c == '-') {
+                    int n = 0;
+                    c = *(++argv[i]);
+                    if(family(c) == '1') {
+                        // negative number!
+                        while(family(c) == '1') {
+                           n = n * 10 + (c - '0');
+                           c = *(++argv[i]);
+                        }                       
+                        fprintf(stderr, "Compile Error: invalid number where not all digits are numbers\n");
+                        n *= -1;
+                        push(n);
+                    } else {
+                        // subtract operation!
+                        int a = stpop();
+                        int b = stpop();
+                        pop();
+                        printf("\tsubq %%r10, %%r11\n");
+                        pushi("%%r11", a - b);
+                    }
+                } else if(c == '+') {
+                   if(*(++argv[i]) != 0) {
+                        fprintf(stderr, "Compile Error: invalid string %s\n", argv[i]);
+                   }
+
+                   int a = stpop();
+                   int b = stpop();
+                   pop();
+                   printf("\taddq %%r10, %%r11\n");
+                   pushi("%%r11", a + b);
+                } else if(c == '*') {
+                   if(*(++argv[i]) != 0) {
+                        fprintf(stderr, "Compile Error: invalid string %s\n", argv[i]);
+                   }
+                    
+                   int a = stpop();
+                   int b = stpop();
+                   pop();
+                   printf("\timulq %%r10, %%r11\n");
+                   pushi("%%r11", a * b);
+                } else {
+                    fprintf(stderr, "Compile Error: invalid operator %s\n", argv[i]);
+                }
+                break;
+        case 'x':
+            if(c == 'x') {
+               pushi("%%rdi", 0); 
+            } else if(c == 'y') {
+               pushi("%%rsi", 0);
+            } else if(c == 'z') {
+               pushi("%%rdx", 0); 
+            } else {
+               fprintf(stderr, "Compile Error: bad variable name that is not x, y or z %s\n", argv[i]); 
+            }
+            break;
+        int var;
+        case '1':
+            var = c;
+            while(isdigit(var)) {
+                var = *(++argv[i]);
+            }
+            push(atoi(argv[i]));
+            break;
+        case 0:
+            fprintf(stderr, "Compile Error: invalid symbol/operator\n");
+            break;
+        }
+    }
+    printf("\tpopq %%rax\n");
+    printf("\tretq\n");
+}
+
+int isLetter(char c) {
+    return (c > 64) && (c < 123);
+}
+
+int isNum(char c) {
+    return (c > 47) && (c < 58);
+}
+
+char family(char c) {
+    if(isLetter(c) == 1) {
+        return 'x'; // variable (potentially)
+    } else if(isNum(c) == 1) {
+        return '1'; // number
+    } else if((c == '+') || (c == '-') || (c == '*')) {
+        return '+'; // operation
+    } 
+    return 0;
+}
+
+void push(int n) {
+    printf("\tpushq $%d\n", n);
+    sp++;
+    stack[sp] = n;
+}
+
+void pushi(char* c, int n) {
+    printf("\tpushq %s\n", c);
+    // will handle new value
+    sp++;
+    stack[sp] = n;
+}
+
+void pop() {
+    printf("\tpopq %%r10\n");
+    printf("\tpopq %%r11\n");
+}
+
+int stpop() {
+    int n = stack[sp];
+    sp--;
+    if(sp < 0) {
+        fprintf(stderr, "Compile Error operator requires two arguments\n\n");
+    }
+    return n;
+}

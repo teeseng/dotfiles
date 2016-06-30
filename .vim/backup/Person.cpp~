@@ -1,0 +1,17 @@
+#include "Person.h"
+
+// Constructor for Person class
+Person::Person(string name): name(name) {}
+
+// Return Rating for people in the Rate List
+Rating* Person::getRate(string name) {
+	Rating* temp;
+	list<Rating*>::const_iterator it;
+	for (it = Person::ratings.begin(); it != Person::ratings.end(); it++) {
+		temp = *it;
+		if (temp->pperson->name == name) {
+			return temp;
+		}
+	}
+	return temp;
+}

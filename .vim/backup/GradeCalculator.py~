@@ -1,0 +1,13 @@
+grade1 = input('Enter your grade for 1st Nine Weeks: ')
+if not(isinstance(grade1, int) or isinstance(grade1, float)):
+	print('You did not enter valid values')
+grade2 = input('Enter your grade for 2nd Nine weeks: ')
+if not(isinstance(grade2, int) or isinstance(grade2, float)):
+	print('You did not enter valid values')
+
+
+gradeNeeded = (89.5 - (grade1 * 0.425 + grade2 * 0.425))/0.15
+print('You need a: ' + str(gradeNeeded))
+
+
+
