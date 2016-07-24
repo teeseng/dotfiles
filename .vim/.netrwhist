@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/andytseng/Projects/Github/A11'
-let g:netrw_dirhist_2='/Users/andytseng/.atom'
-let g:netrw_dirhist_3='/Users/andytseng/.vim'
-let g:netrw_dirhist_4='/Users/andytseng/archlab-handout'
-let g:netrw_dirhist_5='/Users/andytseng/School/Spring 2016/CS439/hello.dSYM'
-let g:netrw_dirhist_6='/Users/andytseng/Dropbox'
-let g:netrw_dirhist_7='/Users/andytseng/mok-up-project1'
-let g:netrw_dirhist_8='/Users/andytseng/.vim'
-let g:netrw_dirhist_9='/Users/andytseng/dotfiles2'
+let g:netrw_dirhist_cnt =0

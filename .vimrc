@@ -1,10 +1,10 @@
 " By Andy Tseng
-" $VIMRC used for my vim
-" League account is Seiplo/Claves : P5/D4
-
+" $VIMRC used for my vim " League account is Seiplo/Claves : P5/D4
+"
 "interface
 set nu
 set nobackup
+set nowritebackup
 set nocompatible
 set expandtab
 set tabstop=4
@@ -21,37 +21,40 @@ set ic
 set wildmenu
 set showcmd
 set ruler
+:set colorcolumn=80
 set laststatus=2
-"set mouse=a
-    
+
 "remaps
 inoremap jj <ESC>
 inoremap Jj <ESC>
 inoremap jJ <ESC> 
-noremap E <$>
-noremap B <0>
-command Wq wq
-command Q q
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <right> <nop>
+inoremap <left> <nop>
+nnoremap E $
+nnoremap B 0
+:command Wq wq
+:command Q q
+:command W w
 
+"color!
+colorscheme desert-warm-256
+
+"syntax
 syntax on
 filetype plugin indent on
 let map=","
-
-"colors!
-highlight Search guibg='Purple' guifg='Yellow'
-colorscheme desert-warm-256
 
 "plugins
 call pathogen#infect()
 call pathogen#helptags()
 
-"nerdtree
-autocmd VimEnter * NERDTree
-
 "syntastic
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:syntastic_python_checkers=['']
 
-"airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='lucius'
