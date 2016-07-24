@@ -1,6 +1,5 @@
 " By Andy Tseng
-" $VIMRC used for my vim " League account is Seiplo/Claves : P5/D4
-"
+ 
 "interface
 set nu
 set nobackup
@@ -21,7 +20,7 @@ set ic
 set wildmenu
 set showcmd
 set ruler
-:set colorcolumn=80
+set colorcolumn=80
 set laststatus=2
 
 "remaps
@@ -43,16 +42,23 @@ nnoremap B 0
 :command W w
 
 "color!
-colorscheme desert-warm-256
+colorscheme Tomorrow-Night-Eighties
+let g:airline_theme = 'lxvc'
 
 "syntax
 syntax on
 filetype plugin indent on
 let map=","
 
-"plugins
-call pathogen#infect()
-call pathogen#helptags()
+
+"plugins manager
+call plug#begin('~/.vim/plugged')
+Plug '0ax1/lxvc'
+Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
+Plug 'scrooloose/syntastic'
+Plug 'vim-airline/vim-airline' 
+call plug#end()
+
 
 "syntastic
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
