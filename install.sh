@@ -7,6 +7,7 @@ rm -rf ~/.vim
 
 # hard link .vimrc to vimrc file in repo
 ln $PWD/vimrc ~/.vimrc
+ln $PWD/tmux.conf ~/.tmux.conf
 
 mkdir ~/.vim
 cp -a $PWD/vim ~/.vim
