@@ -5,7 +5,7 @@ set nu
 set nobackup
 set nowritebackup
 set nocompatible
-set expandtab
+set expandtab 
 set tabstop=4
 set shiftwidth=4
 set smarttab
