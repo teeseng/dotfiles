@@ -16,7 +16,7 @@ script.
 
 Plugins used:
 
-**Nerdtree**: File navigation plugin 
-**Syntastic**: Syntax checker common programming languages 
+**Nerdtree**: File navigation plugin.
+**Syntastic**: Syntax checker common programming languages.
 **vim-airline**: Vim-airline that shows important information.
 
