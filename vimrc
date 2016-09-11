@@ -1,5 +1,4 @@
 " By Andy Tseng
- 
 "interface
 set nu
 set nobackup
@@ -54,6 +53,8 @@ Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline' 
 call plug#end()
+
+execute pathogen#infect()
 
 "syntastic
 let g:syntastic_cpp_compiler ='clang++'
