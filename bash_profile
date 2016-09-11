@@ -1,19 +1,13 @@
+umask 077
+alias ls='ls -al'
 
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+# OOP aliases
+alias dockcollatz="docker run -it -v /Users/andytseng/desk/cs371p-collatz/:/usr/cs371p -w /usr/cs371p gpdowning/gcc"
 
-#code I modify
-alias ls='ls -Gh'
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$"
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-
-alias gl='git log'
+# git aliases
+alias ga='git add'  
+alias gc='git commit'
+alias gp='git push'
+alias gb='git branch'
 alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m '
-alias ge='git push '
-alias sudo='sudo '
-
+alias gl='git log'
