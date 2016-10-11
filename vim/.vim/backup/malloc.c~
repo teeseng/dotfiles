@@ -1,3 +1,0 @@
-// int *p = new int(5); // takes space in the heap
-    // have to free here 
-// int x = 5; takes space in the stack 
