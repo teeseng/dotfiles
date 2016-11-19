@@ -21,5 +21,6 @@ alias gclone='git clone'
 # compiler aliases
 alias pfl='pdflatex'
 alias g++11='g++ -std=c++11'
+alias tmuxat='tmux -2 a -t'
 
 
