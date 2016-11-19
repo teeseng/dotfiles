@@ -24,9 +24,6 @@ set laststatus=2
 set hlsearch
 
 "remaps
-inoremap jj <ESC>
-inoremap Jj <ESC>
-inoremap jJ <ESC>
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
