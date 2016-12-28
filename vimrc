@@ -24,6 +24,8 @@ set laststatus=2
 set hlsearch
 
 "remaps
+inoremap jj <Esc>
+inoremap Jj <Esc>
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -32,8 +34,8 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <right> <nop>
 inoremap <left> <nop>
-nnoremap E $
-nnoremap B 0
+nnoremap L $
+nnoremap H 0
 command Wq wq
 command Q q
 command W w
@@ -49,7 +51,7 @@ filetype plugin indent on
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plug 'scrooloose/syntastic'
-Plug 'vim-airline/vim-airline'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 execute pathogen#infect()
 

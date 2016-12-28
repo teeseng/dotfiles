@@ -1,11 +1,4 @@
-umask 077
-alias ls="ls -al"
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
 # OOP aliases
-alias dockcollatz="docker run -it -v /Users/andytseng/desk/cs371p-collatz/:/usr/cs371p -w /usr/cs371p gpdowning/gcc"
-alias docknetflix="docker run -it -v /Users/andytseng/desk/cs371p-netflix/:/usr/cs371p -w /usr/cs371p gpdowning/gcc"
 alias andytsendots="ssh -X andytsen@dots.cs.utexas.edu"
 alias andytsenfoam="ssh -X andytsen@seafoam.cs.utexas.edu"
 
