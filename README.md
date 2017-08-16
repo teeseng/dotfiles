@@ -6,7 +6,7 @@ Go to the repo directory and run:
 sh install.sh
 ```
 
-Your old vim setup will be deleted
+Your old vim setup (if you had one) will be named **vimrc\_backup** and **vim\_backup**.
 
 I advise to look at the installation script before running it. 
 
