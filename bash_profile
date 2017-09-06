@@ -1,6 +1,5 @@
 # ssh aliases
-alias andytsendots="ssh andytsen@dots.cs.utexas.edu"
-alias andytsenfoam="ssh andytsen@seafoam.cs.utexas.edu"
+alias andytsenaries="ssh andytsen@aries.cs.utexas.edu"
 
 # git aliases
 alias ga='git add'

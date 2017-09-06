@@ -63,9 +63,5 @@ let g:syntastic_python_checkers=['']
 " cpp highlighting
 let g:cpp_class_scope_highlight = 1
 
-" Trailing whitespace show
-highlight ExtraWhitespace ctermbg=blue guibg=lightblue
-match ExtraWhitespace /\s\+$/
-
 " highlight search
 highlight Search guibg=orange ctermbg=black
