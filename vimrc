@@ -65,3 +65,14 @@ let g:cpp_class_scope_highlight = 1
 
 " highlight search
 highlight Search guibg=orange ctermbg=black
+
+function! ToggleMouse()
+    check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse
+        set mouse=
+    else
+        " enable mouse everywhere
+        set mouse=a
+    endif
+endfunc
