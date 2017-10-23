@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/goyo.vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 execute pathogen#infect()
 
@@ -76,3 +77,8 @@ function! ToggleMouse()
         set mouse=a
     endif
 endfunc
+
+" Code from stackoverflow for tabbar colors
+:hi TabLineFill ctermbg=237
+:hi TabLine ctermfg=72 ctermbg=237
+:hi TabLineSel ctermfg=208 ctermbg=237
