@@ -41,7 +41,7 @@ command Q q
 command W w
 
 "color!
-colorscheme gruvbox
+"colorscheme gruvbox
 
 "syntax
 syntax on
