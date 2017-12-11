@@ -15,7 +15,6 @@ set termencoding=utf-8
 set backspace=indent,eol,start
 set t_Co=256
 set background=dark
-set ic
 set wildmenu
 set showcmd
 set ruler
