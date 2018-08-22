@@ -1,5 +1,6 @@
 " By Andy Tseng
 "interface
+
 set nu
 set nobackup
 set nowritebackup
@@ -40,7 +41,7 @@ command Q q
 command W w
 
 "color!
-"colorscheme gruvbox
+colorscheme gruvbox
 
 "syntax
 syntax on
@@ -48,16 +49,16 @@ filetype plugin indent on
 
 "plugins manager
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
-Plug 'scrooloose/syntastic'
-Plug 'junegunn/goyo.vim'
-Plug 'vim-airline/vim-airline'
+    Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'}
+    Plug 'scrooloose/syntastic'
+    Plug 'junegunn/goyo.vim'
+    Plug 'vim-airline/vim-airline'
 call plug#end()
 execute pathogen#infect()
 
 "syntastic
 let g:syntastic_cpp_compiler ='clang++'
-let g:syntastic_cpp_compiler_options =' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options =' -std=c++11'
 let g:syntastic_python_checkers=['']
 
 " cpp highlighting
@@ -81,3 +82,5 @@ endfunc
 :hi TabLineFill ctermbg=237
 :hi TabLine ctermfg=72 ctermbg=237
 :hi TabLineSel ctermfg=208 ctermbg=237
+
+:set formatoptions-=cro

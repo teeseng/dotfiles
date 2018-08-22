@@ -1,7 +1,11 @@
 clear
 
+echo "-----------------"
 echo "Install vim setup"
+echo "-----------------"
 
+rm -rf $HOME/.vim_backup
+rm -rf $HOME/.vimrc_backup
 mv $HOME/.vimrc $HOME/.vimrc_backup
 mv $HOME/.vim $HOME/.vim_backup
 mv $HOME/.bash_profile $HOME/.bp_backup
