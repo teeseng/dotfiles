@@ -1,6 +1,3 @@
-# ssh aliases
-alias andytsenaries="ssh -X andytsen@aries.cs.utexas.edu"
-
 # git aliases
 alias ga='git add'
 alias gc='git commit'
@@ -21,9 +18,8 @@ alias tmuxat='tmux -2 a -t'
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
+# I like my terminal in this color/format
 # color in terminal
 # PS1='\e[s\e[0;0H\e[1;33m\h    \t\n\e[1;32mThis is my computer\e[u[\u@\h:  \w]\$ '
 PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
 
-GREP_OPTIONS=""
-alias grep="grep $GREP_OPTIONS"

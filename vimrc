@@ -14,6 +14,7 @@ set hidden
 set encoding=utf-8
 set termencoding=utf-8
 set backspace=indent,eol,start
+set formatoptions--cro
 set t_Co=256
 set background=dark
 set wildmenu
