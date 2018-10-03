@@ -13,3 +13,11 @@ if [ -f '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc' ]; then sour
 
 # alias utcs
 alias dots='ssh andytsen@dots.cs.utexas.edu'
+
+# compiler aliases
+alias pfl='pdflatex'
+alias g++11='g++ -std=c++11'
+alias tmuxat='tmux -2 a -t'
+
+
+PS1='\e[32;1m\u@\h: \e[31m\W\e[0m\$ '

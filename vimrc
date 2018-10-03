@@ -60,13 +60,12 @@ execute pathogen#infect()
 "syntastic
 let g:syntastic_cpp_compiler ='clang++'
 let g:syntastic_cpp_compiler_options =' -std=c++11'
-let g:syntastic_python_checkers=['']
 
 " cpp highlighting
 let g:cpp_class_scope_highlight = 1
 
 " highlight search
-highlight Search guibg=orange ctermbg=black
+highlight Search guibg=blue ctermbg=black
 
 function! ToggleMouse()
     check if mouse is enabled
@@ -84,4 +83,3 @@ endfunc
 :hi TabLine ctermfg=72 ctermbg=237
 :hi TabLineSel ctermfg=208 ctermbg=237
 
-:set formatoptions-=cro
