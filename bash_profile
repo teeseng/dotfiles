@@ -1,3 +1,6 @@
+# utcs alias
+alias dots='ssh andytsen@dots.cs.utexas.edu'
+
 # git aliases
 alias ga='git add'
 alias gc='git commit'
@@ -21,5 +24,5 @@ export PATH
 # I like my terminal in this color/format
 # color in terminal
 # PS1='\e[s\e[0;0H\e[1;33m\h    \t\n\e[1;32mThis is my computer\e[u[\u@\h:  \w]\$ '
-PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
+ PS1='\e[32;1m\u@\h: \e[31m\W\e[0m\$ '
 

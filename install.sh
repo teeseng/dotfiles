@@ -9,12 +9,14 @@ rm -rf $HOME/.vimrc_backup
 mv $HOME/.vimrc $HOME/.vimrc_backup
 mv $HOME/.vim $HOME/.vim_backup
 mv $HOME/.bash_profile $HOME/.bp_backup
+mv $HOME/.bashrc $HOME/.brc_backup
 
 
 # hard link .vimrc to vimrc file in repo
 ln $PWD/vimrc ~/.vimrc
 ln $PWD/tmux.conf ~/.tmux.conf
 ln $PWD/bash_profile ~/.bash_profile
+ln $PWD/bashrc ~/.bashrc
 
 # make .vim file for plugins
 mkdir ~/.vim

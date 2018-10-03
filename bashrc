@@ -10,3 +10,6 @@ if [ -f '/home/andy/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/h
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+# alias utcs
+alias dots='ssh andytsen@dots.cs.utexas.edu'
