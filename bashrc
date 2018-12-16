@@ -10,6 +10,21 @@ if [ -f '/home/andy/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/h
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
+GREP_OPTIONS=""
+alias grep="grep $GREP_OPTIONS"
+
+
+# git aliases
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gb='git branch'
+alias gs='git status'
+alias gl='git log'
+alias gclone='git clone'
+alias gpull='git pull'
+
+
 # compiler aliases
 alias pfl='pdflatex'
 alias g++11='g++ -std=c++11'
