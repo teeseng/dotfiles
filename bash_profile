@@ -1,6 +1,3 @@
-# utcs alias
-alias dots='ssh andytsen@dots.cs.utexas.edu'
-
 # git aliases
 alias ga='git add'
 alias gc='git commit'
@@ -26,3 +23,5 @@ export PATH
 # PS1='\e[s\e[0;0H\e[1;33m\h    \t\n\e[1;32mThis is my computer\e[u[\u@\h:  \w]\$ '
  PS1='\e[32;1m\u@\h: \e[31m\W\e[0m\$ '
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
