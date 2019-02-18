@@ -1,9 +1,11 @@
 " By Andy Tseng
-"interface
 
+
+" still deciding if I should do this 
+"set nobackup
+"set nowritebackup
+"
 set nu
-set nobackup
-set nowritebackup
 set nocompatible
 set expandtab
 set tabstop=4

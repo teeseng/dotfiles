@@ -4,12 +4,6 @@ export CLICOLOR=1
 export SPARK_HOME=/opt/spark
 export PATH=$SPARK_HOME/bin:$PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/andy/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/home/andy/Downloads/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/home/andy/Downloads/google-cloud-sdk/completion.bash.inc'; fi
-
 # compiler aliases
 alias pfl='pdflatex'
 alias g++11='g++ -std=c++11'
