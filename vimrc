@@ -2,10 +2,12 @@
 
 
 " still deciding if I should do this 
-"set nobackup
-"set nowritebackup
-"
+set nobackup
+set nowritebackup
+
 set nu
+set swapfile
+set dir=~/swaps
 set nocompatible
 set expandtab
 set tabstop=4
@@ -26,7 +28,7 @@ set colorcolumn=80
 set laststatus=2
 set hlsearch
 
-"remaps
+" remaps
 inoremap jj <Esc>
 inoremap Jj <Esc>
 nnoremap <up> <nop>
@@ -42,6 +44,7 @@ nnoremap H 0
 command Wq wq
 command Q q
 command W w
+:map <F2> <Esc>
 
 "color!
 colorscheme gruvbox

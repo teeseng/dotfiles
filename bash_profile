@@ -16,7 +16,12 @@ alias tmuxat='tmux -2 a -t'
 alias cp='cp -iv'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
-alias ls='ls -a'
+alias ls='ls -al'
 alias which='type =-all'
+alias windows='cd /Volumes/BOOTCAMP'
+
+# color
+export PS1='\u@\h\w$ '
+export CLICOLOR=1
 
 
