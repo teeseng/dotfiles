@@ -6,8 +6,8 @@ set nobackup
 set nowritebackup
 
 set nu
-set swapfile
-set dir=~/swaps
+"set swapfile
+"set dir=~/swaps
 set nocompatible
 set expandtab
 set tabstop=4
