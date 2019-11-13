@@ -1,0 +1,25 @@
+xterm*faceName: Monaco
+xterm*faceSize: 11
+xterm*renderFont: true
+
+
+xterm*background: #282828
+xterm*foreground: #ebdbb2
+xterm*cursorColor: #d65d0e
+xterm*color0: #282828
+xterm*color1: #CC241D
+xterm*color2: #98871A
+xterm*color3: #D79921
+xterm*color4: #458588
+xterm*color5: #B16286
+xterm*color6: #689D6A
+xterm*color7: #A89984
+xterm*color8: #928374
+xterm*color9: #FB4934
+xterm*color10: #B8BB26
+xterm*color11: #FABD2F
+xterm*color12: #83A598
+xterm*color13: #D3869B
+xterm*color14: #8EC07C
+xterm*color15: #EBDBB2
+

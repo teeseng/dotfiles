@@ -20,7 +20,7 @@ alias mkdir='mkdir -pv'
 alias mv='mv -iv'
 alias ls='ls -a'
 alias which='type =-all'
-export TERM=screen-256color
+alias vi='vim'
 
 # neovim alias
 alias nvim='~/nvim.appimage'

@@ -4,6 +4,9 @@ echo "-----------------"
 echo "Install vim setup"
 echo "-----------------"
 
+echo "remapping keyboard"
+setxkbmap -layout us -option ctrl:nocaps
+
 rm -rf $HOME/.vim_backup
 rm -rf $HOME/.vimrc_backup
 mv $HOME/.vimrc $HOME/.vimrc_backup
