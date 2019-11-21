@@ -1,10 +1,8 @@
 " By Andy Tseng
 
-
 " still deciding if I should do this 
-set nobackup
+set nobackup 
 set nowritebackup
-
 set nu
 "set swapfile
 "set dir=~/swaps
@@ -59,6 +57,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/syntastic'
     Plug 'junegunn/goyo.vim'
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 execute pathogen#infect()
 
@@ -88,3 +87,9 @@ endfunc
 :hi TabLine ctermfg=72 ctermbg=237
 :hi TabLineSel ctermfg=208 ctermbg=237
 
+
+" NERDTree Mappings/Hotkeys
+map <C-n> :NERDTreeToggle<CR>
+
+" airline
+let g:airline_theme='gruvbox'
