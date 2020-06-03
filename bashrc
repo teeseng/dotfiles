@@ -25,14 +25,18 @@ alias vi='vim'
 # neovim alias
 alias nvim='~/nvim.appimage'
 
-#PS1=' \[\u@\h\] [\w] \[$(tput sgr0)\]'
 
 GREEN="\[$(tput setaf 2)\]"
 RED="\[$(tput setaf 1)\]"
+C3="\[$(tput setaf 3)\]"
 BOLD="\[$(tput bold)\]"
 RESET="\[$(tput sgr0)\]"
 
-PS1="${GREEN}${BOLD}\w${RED}:${RESET} "
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+PS1="${GREEN}${BOLD}\w ${C3}\$(git_branch)${RED}:${RESET}"
 
 
 # ls settings :)
