@@ -9,12 +9,13 @@ setxkbmap -layout us -option ctrl:nocaps
 
 rm -rf $HOME/.vim_backup
 rm -rf $HOME/.vimrc_backup
-mv $HOME/.vimrc $HOME/.vimrc_backup
-mv $HOME/.vim $HOME/.vim_backup
-mv $HOME/.bash_profile $HOME/.bp_backup
-mv $HOME/.bashrc $HOME/.brc_backup
-mv $HOME/.Xresources $HOME/.Xres_backup
-
+mkdir backups
+mv $HOME/.vimrc $HOME/backups/.vimrc_backup
+mv $HOME/.vim $HOME/backups/.vim_backup
+mv $HOME/.bash_profile $HOME/backups/.bp_backup
+mv $HOME/.bashrc $HOME/backups/.brc_backup
+mv $HOME/.Xresources $HOME/backups/.Xres_backup
+mv $HOME/.Xdefaults $HOME/backups/.Xdef_backup
 
 # hard link .vimrc to vimrc file in repo
 ln $PWD/vimrc ~/.vimrc
@@ -22,6 +23,15 @@ ln $PWD/tmux.conf ~/.tmux.conf
 ln $PWD/bash_profile ~/.bash_profile
 ln $PWD/bashrc ~/.bashrc
 ln $PWD/Xresources ~/.Xresources
+ln $PWD/Xdefaults ~/.Xdefaults
+
+echo "-----------------"
+echo "Install monaco font"
+echo "-----------------"
+
+# font monaco install
+git clone https://github.com/todylu/monaco.ttf
+cp monaco.ttf/monaco.ttf ~/.fonts/
 
 # make .vim file for plugins
 mkdir ~/.vim
