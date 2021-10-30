@@ -1,0 +1,31 @@
+URxvt.background:       #282828
+URxvt.foreground:       #EBDBB2
+URxvt.color7:           #A8998A
+URxvt.colorBD:          #ffffff
+URxvt.cursorColor:      #d65d0e
+URxvt.throughColor:     #8080f0
+URxvt.highlightColor:   #665C54
+URxvt.scrollBar: false
+Urxvt.transparent: true
+Urxvt.shading: 40
+
+URxvt.color0:  #282828
+URxvt.color1:  #CC241D
+URxvt.color2:  #98871A
+URxvt.color3:  #D79921
+URxvt.color4:  #458588
+URxvt.color5:  #B16286
+URxvt.color6:  #689D6A
+URxvt.color7:  #A89984
+URxvt.color8:  #928374
+URxvt.color9:  #FB4934
+URxvt.color10: #B8BB26
+URxvt.color11: #FABD2F
+URxvt.color12: #83A598
+URxvt.color13: #D3869B
+URxvt.color14: #8EC07C
+URxvt.color15: #EBDBB2
+
+URxvt.font: xft:Monaco:size=11:3
+Urxvt.termName: rxvt-unicode
+Urxvt.iconFile: /usr/share/icons/font_awesome/fontawesome-webfont.svg
